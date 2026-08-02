@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>每日一句 · 今天适合教孩子什么 - 凌姐·连山易传承人</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { 
+    font-family: -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif;
+    background: linear-gradient(135deg, #f5e8c8 0%, #e8d8a8 100%);
+    color: #333;
+    line-height: 1.6;
+    min-height: 100vh;
+  }
+  .container { max-width: 480px; margin: 0 auto; padding: 20px; }
+  
+  .header { text-align: center; padding: 30px 0 20px; }
+  .title { font-size: 32px; color: #8b4513; font-weight: bold; letter-spacing: 4px; }
+  .subtitle { font-size: 16px; color: #6b4423; margin-top: 8px; }
+  
+  .notice {
+    background: rgba(139, 69, 19, 0.1);
+    border: 1px solid #8b4513;
+    border-radius: 8px;
+    padding: 12px;
+    margin: 20px 0;
+    font-size: 13px;
+    color: #5b3413;
+  }
+  
+  .date-card {
+    background: linear-gradient(135deg, #8b4513, #6b3410);
+    border-radius: 16px;
+    padding: 20px;
+    text-align: center;
+    color: #fff8e8;
+    margin-bottom: 16px;
+  }
+  .date-day { font-size: 14px; opacity: 0.9; }
+  .date-jieqi { font-size: 24px; font-weight: bold; margin: 8px 0; }
+  .date-ganzhi { font-size: 18px; opacity: 0.95; }
+  
+  .daily-card {
+    background: #fff;
+    border-radius: 16px;
+    padding: 24px;
+    margin-bottom: 16px;
+    box-shadow: 0 4px 12px rgba(139, 69, 19, 0.1);
+  }
+  
+  .daily-section-title {
+    font-size: 16px;
+    font-weight: bold;
+    color: #8b4513;
+    margin-bottom: 12px;
+    padding-left: 10px;
+    border-left: 3px solid #8b4513;
+  }
+  
+  .daily-content {
+    font-size: 15px;
+    color: #333;
+    line-height: 1.8;
+    padding: 8px 0;
+  }
+  
+  .hook-card {
+    background: linear-gradient(135deg, #fff8e8, #fdf0d0);
+    border-radius: 16px;
+    padding: 20px;
+    text-align: center;
+    border: 2px solid #8b4513;
+    margin-top: 16px;
+  }
+  .hook-title { font-size: 16px; font-weight: bold; color: #8b4513; margin-bottom: 8px; }
+  .hook-desc { font-size: 13px; color: #5b3413; margin-bottom: 12px; }
+  .hook-btn {
+    display: inline-block;
+    padding: 12px 28px;
+    background: #8b4513;
+    color: #fff;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: bold;
+  }
+  
+  .form-card {
+    background: #fff;
+    border-radius: 16px;
+    padding: 20px;
+    margin-bottom: 16px;
+    box-shadow: 0 4px 12px rgba(139, 69, 19, 0.1);
+  }
+  .form-title {
+    font-size: 16px;
+    font-weight: bold;
+    color: #8b4513;
+    margin-bottom: 12px;
+  }
+  .form-hint { font-size: 13px; color: #8b6f47; margin-bottom: 12px; }
+  .form-input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #d4b483;
+    border-radius: 8px;
+    font-size: 15px;
+    background: #fdf8f0;
+  }
+  .btn-primary {
+    width: 100%;
+    padding: 14px;
+    background: #8b4513;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 12px;
+  }
+  .footer {
+    text-align: center;
+    padding: 20px 0;
+    color: #8b6f47;
+    font-size: 12px;
+  }
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="header">
+    <div class="title">每日一句</div>
+    <div class="subtitle">今天适合教孩子什么</div>
+  </div>
+  
+  <div class="notice">
+    ⚠️ <strong>AI 模板提示</strong>：本工具的"今日说明书"基于连山易 24 节气 + 当日干支推算，<strong>仅供家长参考</strong>。不是凌姐的判断——想听凌姐亲自看孩子八字？<strong>¥9.9 30 分钟亲聊</strong>。
+  </div>
+  
+  <!-- 当日信息 -->
+  <div class="date-card" id="dateCard">
+    <div class="date-day" id="todayDate"></div>
+    <div class="date-jieqi" id="todayJieQi">节气加载中...</div>
+    <div class="date-ganzhi" id="todayGanZhi">干支加载中...</div>
+  </div>
+  
+  <!-- 孩子说明书输入（首次需要） -->
+  <div class="form-card" id="formCard">
+    <div class="form-title">📋 孩子的说明书（只填一次）</div>
+    <div class="form-hint">为了给"今日说明书"配上孩子的说明书，请填孩子的生日。<br>不填也行，会给通用节气提示。</div>
+    
+    <div class="form-group">
+      <label class="form-label">出生日期</label>
+      <input type="date" id="childBirthDate" class="form-input">
+    </div>
+    
+    <button class="btn-primary" onclick="saveChild()">💾 保存孩子的说明书</button>
+  </div>
+  
+  <!-- 今日说明书 -->
+  <div class="daily-card" id="dailyCard">
+    <div class="daily-section-title">📅 今日节气 / 时令</div>
+    <div class="daily-content" id="jieqiContent"></div>
+    
+    <div class="daily-section-title">🌟 今日干支 + 孩子说明书的提示</div>
+    <div class="daily-content" id="dailyTip"></div>
+    
+    <div class="daily-section-title">💡 家长具体能做的事</div>
+    <div class="daily-content" id="parentTip"></div>
+  </div>
+  
+  <div class="hook-card">
+    <div class="hook-title">想听凌姐亲自看？</div>
+    <div class="hook-desc">上面是 AI 模板，不是凌姐的判断。<br>凌姐亲自看孩子八字，给具体建议。</div>
+    <a href="javascript:void(0)" onclick="contactLingsister()" class="hook-btn">📱 加微信 ¥9.9 亲聊</a>
+  </div>
+  
+  <div class="footer">
+    凌姐·连山易传承人 · 命里有数 MVP<br>
+    工具 2：每日一句（基于《连山易·人和篇》）
+  </div>
+</div>
+
+<script>
+// ========== 24 节气 + 阳历日期（来自《连山易·人和课》P65） ==========
+const JIEQI_CALENDAR = [
+  {name: '小寒', start: '01-05', end: '01-19', month: 1},
+  {name: '大寒', start: '01-20', end: '02-03', month: 1},
+  {name: '立春', start: '02-04', end: '02-18', month: 2},
+  {name: '雨水', start: '02-19', end: '03-05', month: 2},
+  {name: '惊蛰', start: '03-06', end: '03-20', month: 3},
+  {name: '春分', start: '03-21', end: '04-04', month: 3},
+  {name: '清明', start: '04-05', end: '04-19', month: 4},
+  {name: '谷雨', start: '04-20', end: '05-05', month: 4},
+  {name: '立夏', start: '05-06', end: '05-20', month: 5},
+  {name: '小满', start: '05-21', end: '06-05', month: 5},
+  {name: '芒种', start: '06-06', end: '06-20', month: 6},
+  {name: '夏至', start: '06-21', end: '07-06', month: 6},
+  {name: '小暑', start: '07-07', end: '07-22', month: 7},
+  {name: '大暑', start: '07-23', end: '08-07', month: 7},
+  {name: '立秋', start: '08-08', end: '08-22', month: 8},
+  {name: '处暑', start: '08-23', end: '09-07', month: 8},
+  {name: '白露', start: '09-08', end: '09-22', month: 9},
+  {name: '秋分', start: '09-23', end: '10-07', month: 9},
+  {name: '寒露', start: '10-08', end: '10-23', month: 10},
+  {name: '霜降', start: '10-24', end: '11-06', month: 10},
+  {name: '立冬', start: '11-07', end: '11-21', month: 11},
+  {name: '小雪', start: '11-22', end: '12-06', month: 11},
+  {name: '大雪', start: '12-07', end: '12-21', month: 12},
+  {name: '冬至', start: '12-22', end: '01-04', month: 12}
+];
+
+// 24 节气特性（基于《连山易·人和课》）
+const JIEQI_TIPS = {
+  '小寒': {season: '冬末', desc: '万物开始回阳，宜保暖，进补，收藏'},
+  '大寒': {season: '冬末', desc: '一年最冷，宜家庭团聚，养精蓄锐'},
+  '立春': {season: '春初', desc: '万物复苏，宜立志、计划、播种'},
+  '雨水': {season: '春初', desc: '天降雨水，宜湿润、流动、变化'},
+  '惊蛰': {season: '春中', desc: '春雷惊醒蛰虫，宜唤醒、启发、行动'},
+  '春分': {season: '春中', desc: '昼夜平分，宜平衡、协调、稳定'},
+  '清明': {season: '春末', desc: '天气清明，宜扫墓、追思、传承'},
+  '谷雨': {season: '春末', desc: '雨生百谷，宜生长、滋养、积累'},
+  '立夏': {season: '夏初', desc: '夏季开始，宜立志、展现、活跃'},
+  '小满': {season: '夏初', desc: '麦类籽粒饱满，宜渐进、小成、稳步'},
+  '芒种': {season: '夏中', desc: '有芒作物成熟，宜收获、播种、转折'},
+  '夏至': {season: '夏中', desc: '一年白天最长，宜光明、热烈、释放'},
+  '小暑': {season: '夏末', desc: '天气炎热，宜降温、修身、储蓄'},
+  '大暑': {season: '夏末', desc: '一年最热，宜静心、纳凉、内省'},
+  '立秋': {season: '秋初', desc: '秋季开始，宜收心、规划、启动'},
+  '处暑': {season: '秋初', desc: '暑气结束，宜调节、转换、收尾'},
+  '白露': {season: '秋中', desc: '天气转凉，宜收获、盘点、感恩'},
+  '秋分': {season: '秋中', desc: '昼夜平分，宜平衡、调整、审视'},
+  '寒露': {season: '秋末', desc: '露水更凉，宜珍藏、收敛、内化'},
+  '霜降': {season: '秋末', desc: '开始有霜，宜保护、收敛、深度'},
+  '立冬': {season: '冬初', desc: '冬季开始，宜储藏、规划、静养'},
+  '小雪': {season: '冬初', desc: '开始下雪，宜纯洁、沉淀、思考'},
+  '大雪': {season: '冬中', desc: '降雪量多，宜静心、读书、内修'},
+  '冬至': {season: '冬中', desc: '一年黑夜最长，宜静养、回望、藏精'}
+};
+
+// 天干 + 家长提示（基于《连山易·人和篇》天干特质）
+const GAN_PARENT_TIPS = {
+  '甲': '今天孩子可能好强急躁，宜肯定他做事的能力，不要打压',
+  '乙': '今天孩子可能多疑虑，宜给他时间和空间，不要催促',
+  '丙': '今天孩子可能想表现，宜让他发光，给他机会带头',
+  '丁': '今天孩子可能害羞，宜保护他的好奇心，不要嘲笑',
+  '戊': '今天孩子可能爱钻研，宜耐心等他，不要打断他',
+  '己': '今天孩子可能想帮忙，宜让他参与家务，肯定他的付出',
+  '庚': '今天孩子可能变通，宜给他规则，让他知道边界',
+  '辛': '今天孩子可能情绪起伏，宜多鼓励，看得见他的辛苦',
+  '壬': '今天孩子可能倔强，宜关心他累不累，不要施压',
+  '癸': '今天孩子可能想得太多，宜让他说出来，不要让他憋着'
+};
+
+// 12 值符提示（基于《连山易·人和篇》第 53-64 页）
+const ZHIFU_TIPS = {
+  '值符': '今天宜肯定孩子的尊严和地位，不可当众打压',
+  '太阳': '今天宜认可和肯定孩子的付出',
+  '伤符': '今天孩子可能易伤感，宜和他"比惨"，让他敞亮',
+  '太阴': '今天宜夸奖孩子的美和才华',
+  '官符': '今天宜公平对待孩子，讲规则',
+  '死符': '今天孩子可能固执，宜耐心引导，不可强行改变',
+  '破碎': '今天孩子可能想创新，宜鼓励他的奇思妙想',
+  '福德': '今天孩子可能懒，宜激发他的内在动力',
+  '白虎': '今天孩子可能有动力，宜引导他做事',
+  '龙德': '今天宜公平公正，开明对待孩子',
+  '吊客': '今天孩子可能挑剔，宜肯定他的完美主义',
+  '病符': '今天孩子可能想法独特，宜相信他的不同'
+};
+
+// ========== 工具函数 ==========
+function getTodayJieQi() {
+  const today = new Date();
+  const month = today.getMonth() + 1;
+  const day = today.getDate();
+  const mmdd = String(month).padStart(2, '0') + '-' + String(day).padStart(2, '0');
+  
+  for (const j of JIEQI_CALENDAR) {
+    if (j.month === 12 && j.name === '冬至') continue;
+    if (j.month === month) {
+      if (mmdd >= j.start && mmdd <= j.end) return j;
+    }
+  }
+  // 跨年处理
+  if (month === 1 && day <= 4) {
+    for (const j of JIEQI_CALENDAR) {
+      if (j.name === '冬至') return j;
+    }
+  }
+  return JIEQI_CALENDAR[0];
+}
+
+function getTodayGanZhi() {
+  const today = new Date();
+  const year = today.getFullYear();
+  const month = today.getMonth() + 1;
+  const day = today.getDate();
+  
+  const TIANGAN_ORDER = ['甲', '乙', '丙', '丁', '戊', '己', '庚', '辛', '壬', '癸'];
+  const DIZHI_ORDER = ['子', '丑', '寅', '卯', '辰', '巳', '午', '未', '申', '酉', '戌', '亥'];
+  
+  // 年柱
+  const yearGan = TIANGAN_ORDER[(year - 1900 + 7) % 10];
+  const yearZhi = DIZHI_ORDER[(year - 1900) % 12];
+  
+  // 日柱（简化：1900-01-01 是甲戌）
+  const baseDate = new Date(1900, 0, 1);
+  const diffDays = Math.floor((today - baseDate) / (1000 * 60 * 60 * 24));
+  const offset = (diffDays + 10) % 60;
+  const dayGan = TIANGAN_ORDER[offset % 10];
+  const dayZhi = DIZHI_ORDER[offset % 12];
+  
+  return {
+    year: yearGan + yearZhi + '年',
+    day: dayGan + dayZhi + '日',
+    dayGan: dayGan,
+    dayZhi: dayZhi
+  };
+}
+
+function getLiuNianZhiFu(year) {
+  // 基于年找六甲旬 → 值符
+  const xunTable = {
+    '甲子': '值符', '乙丑': '太阳', '丙寅': '伤符', '丁卯': '太阴', '戊辰': '官符',
+    '己巳': '死符', '庚午': '破碎', '辛未': '福德', '壬申': '白虎', '癸酉': '龙德',
+    '甲戌': '吊客', '乙亥': '病符', '丙子': '值符', '丁丑': '太阳', '戊寅': '伤符',
+    '己卯': '太阴', '庚辰': '官符', '辛巳': '死符', '壬午': '破碎', '癸未': '福德',
+    '甲申': '白虎', '乙酉': '龙德', '丙戌': '吊客', '丁亥': '病符', '戊子': '值符',
+    '己丑': '太阳', '庚寅': '伤符', '辛卯': '太阴', '壬辰': '官符', '癸巳': '死符',
+    '甲午': '破碎', '乙未': '福德', '丙申': '白虎', '丁酉': '龙德', '戊戌': '吊客',
+    '己亥': '病符', '庚子': '值符', '辛丑': '太阳', '壬寅': '伤符', '癸卯': '太阴',
+    '甲辰': '官符', '乙巳': '死符', '丙午': '破碎', '丁未': '福德', '戊申': '白虎',
+    '己酉': '龙德', '庚戌': '吊客', '辛亥': '病符', '壬子': '值符', '癸丑': '太阳',
+    '甲寅': '伤符', '乙卯': '太阴', '丙辰': '官符', '丁巳': '死符', '戊午': '破碎',
+    '己未': '福德', '庚申': '白虎', '辛酉': '龙德', '壬戌': '吊客', '癸亥': '病符'
+  };
+  const TIANGAN_ORDER = ['甲', '乙', '丙', '丁', '戊', '己', '庚', '辛', '壬', '癸'];
+  const DIZHI_ORDER = ['子', '丑', '寅', '卯', '辰', '巳', '午', '未', '申', '酉', '戌', '亥'];
+  const yearGan = TIANGAN_ORDER[(year - 1900 + 7) % 10];
+  const yearZhi = DIZHI_ORDER[(year - 1900) % 12];
+  const key = yearGan + yearZhi;
+  return xunTable[key] || '值符';
+}
+
+function getChildDayGan(birthDateStr) {
+  if (!birthDateStr) return null;
+  const [year, month, day] = birthDateStr.split('-').map(Number);
+  const TIANGAN_ORDER = ['甲', '乙', '丙', '丁', '戊', '己', '庚', '辛', '壬', '癸'];
+  const baseDate = new Date(1900, 0, 1);
+  const targetDate = new Date(year, month - 1, day);
+  const diffDays = Math.floor((targetDate - baseDate) / (1000 * 60 * 60 * 24));
+  const offset = (diffDays + 10) % 60;
+  return TIANGAN_ORDER[offset % 10];
+}
+
+// ========== 初始化 ==========
+window.onload = function() {
+  // 显示今日日期
+  const today = new Date();
+  const weekDays = ['日', '一', '二', '三', '四', '五', '六'];
+  document.getElementById('todayDate').textContent = 
+    `${today.getFullYear()}年${today.getMonth() + 1}月${today.getDate()}日 周${weekDays[today.getDay()]}`;
+  
+  // 节气
+  const jieqi = getTodayJieQi();
+  document.getElementById('todayJieQi').textContent = '🌱 ' + jieqi.name + ' · ' + jieqi.season;
+  document.getElementById('jieqiContent').textContent = 
+    jieqi.name + '：' + JIEQI_TIPS[jieqi.name].desc + '（' + jieqi.season + '）';
+  
+  // 干支
+  const ganzhi = getTodayGanZhi();
+  document.getElementById('todayGanZhi').textContent = ganzhi.year + ' · ' + ganzhi.day;
+  
+  // 今日说明书
+  const todayGan = ganzhi.dayGan;
+  const zhifu = getLiuNianZhiFu(today.getFullYear());
+  
+  let dailyTipText = '【今日干支】' + ganzhi.dayGan + ' · ' + JIEQI_TIPS[jieqi.name].desc + '
+
+';
+  dailyTipText += '【今日天干特质】
+' + GAN_PARENT_TIPS[todayGan] + '
+
+';
+  dailyTipText += '【今年值符提示】
+' + ZHIFU_TIPS[zhifu];
+  
+  document.getElementById('dailyTip').textContent = dailyTipText;
+  
+  // 家长能做的事
+  let parentTip = '✅ 今天宜：';
+  if (ganzhi.dayGan === '甲' || ganzhi.dayGan === '庚') {
+    parentTip += '肯定孩子做事的能力';
+  } else if (ganzhi.dayGan === '乙' || ganzhi.dayGan === '癸') {
+    parentTip += '耐心听孩子说话，让他表达';
+  } else if (ganzhi.dayGan === '丙' || ganzhi.dayGan === '丁') {
+    parentTip += '给孩子展示的空间';
+  } else if (ganzhi.dayGan === '戊') {
+    parentTip += '让孩子安静地钻研';
+  } else if (ganzhi.dayGan === '己') {
+    parentTip += '陪孩子做家务';
+  } else if (ganzhi.dayGan === '辛') {
+    parentTip += '看见孩子的辛苦，多鼓励';
+  } else if (ganzhi.dayGan === '壬') {
+    parentTip += '关心孩子累不累';
+  }
+  parentTip += '
+
+❌ 今天忌：催促、比较、否定';
+  
+  document.getElementById('parentTip').textContent = parentTip;
+  
+  // 加载保存的孩子说明书
+  const savedChildShuomingshu = localStorage.getItem('child_birthdate');
+  if (savedChildShuomingshu) {
+    document.getElementById('childBirthDate').value = savedChildShuomingshu;
+  }
+};
+
+function saveChild() {
+  const date = document.getElementById('childBirthDate').value;
+  if (!date) {
+    alert('请填孩子的出生日期');
+    return;
+  }
+  localStorage.setItem('child_birthdate', date);
+  alert('已保存！明天打开页面会基于孩子的说明书提示。');
+}
+
+function contactLingsister() {
+  alert('请加凌姐微信预约 ¥9.9 30 分钟亲聊\n\n微信号：_________（待凌姐填）');
+}
+</script>
+</body>
+</html>

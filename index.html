@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>命里有数 · 亲子天赋说明书 - 凌姐·连山易传承人</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { 
+    font-family: -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif;
+    background: linear-gradient(135deg, #f5e8c8 0%, #e8d8a8 100%);
+    color: #333;
+    line-height: 1.6;
+    min-height: 100vh;
+  }
+  .container {
+    max-width: 480px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  .header {
+    text-align: center;
+    padding: 30px 0 20px;
+  }
+  .title {
+    font-size: 32px;
+    color: #8b4513;
+    font-weight: bold;
+    margin-bottom: 8px;
+    letter-spacing: 4px;
+  }
+  .subtitle {
+    font-size: 16px;
+    color: #6b4423;
+    margin-bottom: 12px;
+  }
+  .notice {
+    background: rgba(139, 69, 19, 0.1);
+    border: 1px solid #8b4513;
+    border-radius: 8px;
+    padding: 12px;
+    margin-bottom: 20px;
+    font-size: 13px;
+    color: #5b3413;
+    line-height: 1.5;
+  }
+  .form-card {
+    background: #fff;
+    border-radius: 16px;
+    padding: 24px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 12px rgba(139, 69, 19, 0.1);
+  }
+  .form-title {
+    font-size: 18px;
+    font-weight: bold;
+    color: #8b4513;
+    margin-bottom: 16px;
+    text-align: center;
+  }
+  .form-group {
+    margin-bottom: 16px;
+  }
+  .form-label {
+    display: block;
+    font-size: 14px;
+    color: #6b4423;
+    margin-bottom: 6px;
+    font-weight: 500;
+  }
+  .form-input, .form-select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #d4b483;
+    border-radius: 8px;
+    font-size: 15px;
+    background: #fdf8f0;
+    color: #333;
+  }
+  .form-input:focus, .form-select:focus {
+    outline: none;
+    border-color: #8b4513;
+  }
+  .btn-primary {
+    width: 100%;
+    padding: 14px;
+    background: #8b4513;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 8px;
+    transition: background 0.2s;
+  }
+  .btn-primary:active {
+    background: #6b3410;
+  }
+  .btn-primary:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+  }
+  .result-card {
+    background: #fff;
+    border-radius: 16px;
+    padding: 24px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 12px rgba(139, 69, 19, 0.1);
+    display: none;
+  }
+  .result-card.show {
+    display: block;
+  }
+  .result-header {
+    text-align: center;
+    margin-bottom: 20px;
+    padding-bottom: 16px;
+    border-bottom: 2px solid #e8d8a8;
+  }
+  .result-title {
+    font-size: 20px;
+    font-weight: bold;
+    color: #8b4513;
+  }
+  .result-subtitle {
+    font-size: 13px;
+    color: #8b6f47;
+    margin-top: 4px;
+  }
+  .pillar {
+    background: linear-gradient(135deg, #fdf8f0, #fff8e8);
+    border-radius: 12px;
+    padding: 14px;
+    margin-bottom: 12px;
+    border-left: 4px solid #8b4513;
+  }
+  .pillar-name {
+    font-size: 13px;
+    color: #8b6f47;
+    margin-bottom: 6px;
+  }
+  .pillar-content {
+    font-size: 15px;
+    color: #333;
+  }
+  .pillar-trait {
+    display: inline-block;
+    padding: 4px 10px;
+    background: #8b4513;
+    color: #fff;
+    border-radius: 4px;
+    font-size: 13px;
+    margin-right: 8px;
+  }
+  .section-title {
+    font-size: 16px;
+    font-weight: bold;
+    color: #8b4513;
+    margin: 16px 0 12px;
+    padding-left: 10px;
+    border-left: 3px solid #8b4513;
+  }
+  .hook-card {
+    background: linear-gradient(135deg, #fff8e8, #fdf0d0);
+    border-radius: 16px;
+    padding: 24px;
+    text-align: center;
+    border: 2px solid #8b4513;
+  }
+  .hook-title {
+    font-size: 18px;
+    font-weight: bold;
+    color: #8b4513;
+    margin-bottom: 12px;
+  }
+  .hook-desc {
+    font-size: 14px;
+    color: #5b3413;
+    margin-bottom: 16px;
+    line-height: 1.6;
+  }
+  .hook-btn {
+    display: inline-block;
+    padding: 14px 32px;
+    background: #8b4513;
+    color: #fff;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: bold;
+    transition: background 0.2s;
+  }
+  .hook-btn:active {
+    background: #6b3410;
+  }
+  .hook-price {
+    font-size: 24px;
+    color: #8b4513;
+    font-weight: bold;
+    margin-bottom: 8px;
+  }
+  .hook-price span {
+    font-size: 14px;
+    color: #8b6f47;
+    text-decoration: line-through;
+    margin-left: 8px;
+    font-weight: normal;
+  }
+  .footer {
+    text-align: center;
+    padding: 20px 0;
+    color: #8b6f47;
+    font-size: 12px;
+  }
+  .loader {
+    text-align: center;
+    padding: 20px;
+    color: #8b6f47;
+  }
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="header">
+    <div class="title">命里有数</div>
+    <div class="subtitle">3 分钟测出孩子的说明书</div>
+    <div class="notice">
+      ⚠️ <strong>重要声明</strong>：本工具的说明书解读为 AI 模板，<strong>仅供娱乐参考</strong>。凌姐不做 AI 说明书解读——下面所有解读都是连山易体系的标准模板，不是凌姐的判断。<strong>想听凌姐亲自看八字？¥9.9 30 分钟亲聊</strong>。
+    </div>
+  </div>
+
+  <!-- 输入表单 -->
+  <div class="form-card" id="formCard">
+    <div class="form-title">📋 填孩子的出生信息</div>
+    
+    <div class="form-group">
+      <label class="form-label">📅 出生日期</label>
+      <input type="date" id="birthDate" class="form-input" required>
+    </div>
+
+    <div class="form-group">
+      <label class="form-label">⏰ 出生时辰</label>
+      <select id="birthHour" class="form-select">
+        <option value="">不知道/不确定</option>
+        <option value="23-01">23:00-01:00（子时）</option>
+        <option value="01-03">01:00-03:00（丑时）</option>
+        <option value="03-05">03:00-05:00（寅时）</option>
+        <option value="05-07">05:00-07:00（卯时）</option>
+        <option value="07-09">07:00-09:00（辰时）</option>
+        <option value="09-11">09:00-11:00（巳时）</option>
+        <option value="11-13">11:00-13:00（午时）</option>
+        <option value="13-15">13:00-15:00（未时）</option>
+        <option value="15-17">15:00-17:00（申时）</option>
+        <option value="17-19">17:00-19:00（酉时）</option>
+        <option value="19-21">19:00-21:00（戌时）</option>
+        <option value="21-23">21:00-23:00（亥时）</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label class="form-label">👶 孩子性别</label>
+      <select id="childGender" class="form-select">
+        <option value="female">女孩</option>
+        <option value="male">男孩</option>
+      </select>
+    </div>
+
+    <button class="btn-primary" onclick="calculateBazi()">🎯 读一读孩子的说明书</button>
+  </div>
+
+  <!-- 结果 -->
+  <div class="result-card" id="resultCard">
+    <div class="result-header">
+      <div class="result-title" id="resultTitle">孩子的说明书</div>
+      <div class="result-subtitle" id="resultSubtitle">连山易·人和篇 AI 模板解读</div>
+    </div>
+
+    <div class="section-title">🌟 天干看天赋（10 个核心判断）</div>
+    <div id="tianganResult"></div>
+
+    <div class="section-title">🌍 地支看落地（12 个核心判断）</div>
+    <div id="dizhiResult"></div>
+
+    <div class="section-title">🌸 四季看性格</div>
+    <div id="seasonResult"></div>
+
+    <div class="section-title">⏰ 爻位看能力</div>
+    <div id="yaoweiResult"></div>
+
+    <div class="section-title">🎭 值符看表现形态</div>
+    <div id="zhifuResult"></div>
+
+    <div class="hook-card">
+      <div class="hook-title">想听凌姐亲自看？</div>
+      <div class="hook-desc">
+        上面是 AI 模板，<strong>不是凌姐的判断</strong>。<br>
+        凌姐亲自看八字：结合孩子的实际生活、父母困惑、具体问题，<strong>给出真正的判断</strong>。
+      </div>
+      <div class="hook-price">¥9.9 <span>30 分钟亲聊</span></div>
+      <a href="javascript:void(0)" onclick="contactLingsister()" class="hook-btn">📱 加微信预约</a>
+    </div>
+  </div>
+
+  <div class="footer">
+    凌姐·连山易传承人 · 命里有数 MVP<br>
+    本说明书基于《连山易·人和篇》逻辑整理
+  </div>
+</div>
+
+<script>
+// ========== 连山易判断逻辑（来自《人和篇》） ==========
+
+// 10 天干天赋本质
+const TIANGAN = {
+  '甲': {trait: '好强急躁', best: '统领、领导、创业', child_tip: '保护自尊，给榜样，不可当众打压'},
+  '乙': {trait: '辅佐疑惑', best: '管理、辅助、规划', child_tip: '给予信任和时间，不催'},
+  '丙': {trait: '豪气带头', best: '营销、社交、演讲', child_tip: '给面子，不可冤枉，认可能力'},
+  '丁': {trait: '纯真简单', best: '创新、艺术、研发', child_tip: '保护好奇心，给空间创造'},
+  '戊': {trait: '勤奋钻研', best: '技术、研究、深度', child_tip: '耐心等，给他时间钻研'},
+  '己': {trait: '包容热情', best: '团队、文化、关系', child_tip: '给明确边界'},
+  '庚': {trait: '灵活善变', best: '危机、应变、决策', child_tip: '给规则框架'},
+  '辛': {trait: '辛苦情绪', best: '执行、运营、细节', child_tip: '多鼓励，看得见他的辛苦'},
+  '壬': {trait: '仁义自强', best: '销售、攻坚、突破', child_tip: '关心他累不累'},
+  '癸': {trait: '内藏冷静', best: '战略、策划、思考', child_tip: '多让他说出口'}
+};
+
+// 12 地支落地呈现
+const DIZHI = {
+  '子': {trait: '冷静、城府、聪明', symbol: '鼠', body: '胆', season: '冬'},
+  '丑': {trait: '吃苦耐劳、守财', symbol: '牛', body: '肝', season: '冬'},
+  '寅': {trait: '活泼、顽劣、胆大', symbol: '虎', body: '肺', season: '春'},
+  '卯': {trait: '漂亮、冲动、掌权', symbol: '兔', body: '大肠', season: '春'},
+  '辰': {trait: '老练、要权威、爱说教', symbol: '龙', body: '胃', season: '春'},
+  '巳': {trait: '自强不息、敢为人先', symbol: '蛇', body: '脾', season: '夏'},
+  '午': {trait: '热情光明、骄傲', symbol: '马', body: '心', season: '夏'},
+  '未': {trait: '悟性高、包容、纠结', symbol: '羊', body: '小肠', season: '夏'},
+  '申': {trait: '目标导向、严肃', symbol: '猴', body: '膀胱', season: '秋'},
+  '酉': {trait: '创造力、变革', symbol: '鸡', body: '肾', season: '秋'},
+  '戌': {trait: '不争、随和、好为人师', symbol: '狗', body: '三焦', season: '秋'},
+  '亥': {trait: '沉稳、细致', symbol: '猪', body: '心包络', season: '冬'}
+};
+
+// 12 值符
+const ZHIFU = {
+  '值符': '要面子、要尊严、要地位 - 权威型',
+  '太阳': '需要被认可、被肯定 - 辅助型',
+  '伤符': '易疗愈别人的伤痛，也易让自己受伤 - 疗愈型',
+  '太阴': '聪明、亲切、人缘好 - 万人迷型',
+  '官符': '善于管理、公平讲原则 - 公平型',
+  '死符': '忠贞、专一、坚持 - 坚持型',
+  '破碎': '变通、变化多端 - 创新型',
+  '福德': '有福气、有贵人帮、懒 - 福气型',
+  '白虎': '威信、地位、能干 - 开拓型',
+  '龙德': '公平、正直、开明 - 仕途型',
+  '吊客': '无所不能、追求完美 - 技术型',
+  '病符': '思想独特、与众不同 - 独特型'
+};
+
+// ========== 万年历转换（简化版，基于连山易体系） ==========
+
+// 天干顺序（10 年一轮）
+const TIANGAN_ORDER = ['甲', '乙', '丙', '丁', '戊', '己', '庚', '辛', '壬', '癸'];
+
+// 地支顺序（12 年一轮）
+const DIZHI_ORDER = ['子', '丑', '寅', '卯', '辰', '巳', '午', '未', '申', '酉', '戌', '亥'];
+
+// 时辰对应地支
+const HOUR_TO_DIZHI = {
+  '23-01': '子', '01-03': '丑', '03-05': '寅', '05-07': '卯',
+  '07-09': '辰', '09-11': '巳', '11-13': '午', '13-15': '未',
+  '15-17': '申', '17-19': '酉', '19-21': '戌', '21-23': '亥'
+};
+
+// 计算年柱（公历年转干支）
+function getYearPillar(year) {
+  // 1900 年是庚子年，年干支计算公式
+  // 1900 庚(7) 子(0)
+  const baseYear = 1900;
+  const baseGan = 7; // 庚
+  const baseZhi = 0; // 子
+
+  const offset = year - baseYear;
+  const ganIdx = ((baseGan + offset) % 10 + 10) % 10;
+  const zhiIdx = ((baseZhi + offset) % 12 + 12) % 12;
+
+  return { gan: TIANGAN_ORDER[ganIdx], zhi: DIZHI_ORDER[zhiIdx] };
+}
+
+// 简化月柱算法（基于节气，精度有限）
+function getMonthPillar(year, month, day) {
+  // 简化处理：按公历月份近似
+  const monthZhi = ['寅', '卯', '辰', '巳', '午', '未', '申', '酉', '戌', '亥', '子', '丑'];
+  const monthGanBase = getYearPillar(year);
+
+  // 月干计算（年上起月法）
+  const yearGanIdx = TIANGAN_ORDER.indexOf(monthGanBase.gan);
+  const monthGanStart = (yearGanIdx % 5) * 2 + 2; // 甲己之年丙作首
+  const monthGanIdx = (monthGanStart + month - 1) % 10;
+
+  return { gan: TIANGAN_ORDER[monthGanIdx], zhi: monthZhi[month - 1] };
+}
+
+// 简化日柱算法
+function getDayPillar(year, month, day) {
+  // 1900-01-01 是甲戌日（参考点）
+  const baseDate = new Date(1900, 0, 1);
+  const targetDate = new Date(year, month - 1, day);
+  const diffDays = Math.floor((targetDate - baseDate) / (1000 * 60 * 60 * 24));
+
+  // 60 甲子循环
+  const totalOffset = (diffDays + 10) % 60; // 1900-01-01 是甲戌（10 号位置）
+  const ganIdx = totalOffset % 10;
+  const zhiIdx = totalOffset % 12;
+
+  return { gan: TIANGAN_ORDER[ganIdx], zhi: DIZHI_ORDER[zhiIdx] };
+}
+
+// 时柱
+function getHourPillar(dayGan, hourDizhi) {
+  if (!hourDizhi) return null;
+  const dayGanIdx = TIANGAN_ORDER.indexOf(dayGan);
+  const hourZhiIdx = DIZHI_ORDER.indexOf(hourDizhi);
+
+  // 日上起时法
+  const hourGanStart = (dayGanIdx % 5) * 2;
+  const hourGanIdx = (hourGanStart + hourZhiIdx) % 10;
+
+  return { gan: TIANGAN_ORDER[hourGanIdx], zhi: hourDizhi };
+}
+
+// 找值的干支
+function getLiuNianZhi(year, pillarZhi) {
+  // 简化处理：同年即值
+  return pillarZhi === DIZHI_ORDER[(year - 1900) % 12];
+}
+
+// ========== 主函数 ==========
+function calculateBazi() {
+  const dateInput = document.getElementById('birthDate').value;
+  const hourInput = document.getElementById('birthHour').value;
+  const gender = document.getElementById('childGender').value;
+
+  if (!dateInput) {
+    alert('请填写出生日期');
+    return;
+  }
+
+  const [year, month, day] = dateInput.split('-').map(Number);
+
+  // 排四柱
+  const yearPillar = getYearPillar(year);
+  const monthPillar = getMonthPillar(year, month, day);
+  const dayPillar = getDayPillar(year, month, day);
+  const hourPillar = hourInput ? getHourPillar(dayPillar.gan, HOUR_TO_DIZHI[hourInput]) : null;
+
+  // 渲染天干
+  const tianganHtml = `
+    <div class="pillar">
+      <div class="pillar-name">年柱（祖上/家族）</div>
+      <div class="pillar-content">
+        <span class="pillar-trait">${yearPillar.gan}</span>
+        ${TIANGAN[yearPillar.gan].trait} · 适合${TIANGAN[yearPillar.gan].best}
+      </div>
+    </div>
+    <div class="pillar">
+      <div class="pillar-name">月柱（父母/成长环境）</div>
+      <div class="pillar-content">
+        <span class="pillar-trait">${monthPillar.gan}</span>
+        ${TIANGAN[monthPillar.gan].trait} · 适合${TIANGAN[monthPillar.gan].best}
+      </div>
+    </div>
+    <div class="pillar">
+      <div class="pillar-name">日柱（自己/配偶宫）</div>
+      <div class="pillar-content">
+        <span class="pillar-trait">${dayPillar.gan}</span>
+        ${TIANGAN[dayPillar.gan].trait} · 适合${TIANGAN[dayPillar.gan].best}
+      </div>
+    </div>
+    ${hourPillar ? `
+    <div class="pillar">
+      <div class="pillar-name">时柱（子女/内心）</div>
+      <div class="pillar-content">
+        <span class="pillar-trait">${hourPillar.gan}</span>
+        ${TIANGAN[hourPillar.gan].trait} · 适合${TIANGAN[hourPillar.gan].best}
+      </div>
+    </div>
+    ` : '<div class="pillar"><div class="pillar-name">时柱</div><div class="pillar-content">未填写时辰，跳过</div></div>'}
+  `;
+  document.getElementById('tianganResult').innerHTML = tianganHtml;
+
+  // 渲染地支
+  const dizhiHtml = `
+    <div class="pillar">
+      <div class="pillar-name">年支（${yearPillar.zhi}）</div>
+      <div class="pillar-content">
+        ${DIZHI[yearPillar.zhi].trait}
+      </div>
+    </div>
+    <div class="pillar">
+      <div class="pillar-name">月支（${monthPillar.zhi}）</div>
+      <div class="pillar-content">
+        ${DIZHI[monthPillar.zhi].trait}
+      </div>
+    </div>
+    <div class="pillar">
+      <div class="pillar-name">日支（${dayPillar.zhi}）</div>
+      <div class="pillar-content">
+        ${DIZHI[dayPillar.zhi].trait}
+      </div>
+    </div>
+    ${hourPillar ? `
+    <div class="pillar">
+      <div class="pillar-name">时支（${hourPillar.zhi}）</div>
+      <div class="pillar-content">
+        ${DIZHI[hourPillar.zhi].trait}
+      </div>
+    </div>
+    ` : ''}
+  `;
+  document.getElementById('dizhiResult').innerHTML = dizhiHtml;
+
+  // 渲染四季
+  const daySeason = DIZHI[dayPillar.zhi].season;
+  const monthSeason = DIZHI[monthPillar.zhi].season;
+  const seasonHtml = `
+    <div class="pillar">
+      <div class="pillar-name">月支所在季节（${monthSeason}）</div>
+      <div class="pillar-content">${SEASON_DESC[monthSeason]}</div>
+    </div>
+    <div class="pillar">
+      <div class="pillar-name">日支所在季节（${daySeason}）</div>
+      <div class="pillar-content">${SEASON_DESC[daySeason]}</div>
+    </div>
+    <div class="pillar">
+      <div class="pillar-name">混合类型</div>
+      <div class="pillar-content">${MIX_TYPE[monthSeason + '_' + daySeason] || '需要具体分析'}</div>
+    </div>
+  `;
+  document.getElementById('seasonResult').innerHTML = seasonHtml;
+
+  // 渲染爻位（简化版，按日干支查表）
+  const yaoWeiHtml = renderYaoWei(dayPillar);
+  document.getElementById('yaoweiResult').innerHTML = yaoWeiHtml;
+
+  // 渲染值符（基于年柱定）
+  const zhifuHtml = renderZhifu(yearPillar);
+  document.getElementById('zhifuResult').innerHTML = zhifuHtml;
+
+  // 显示结果
+  document.getElementById('formCard').style.display = 'none';
+  document.getElementById('resultCard').classList.add('show');
+  document.getElementById('resultCard').scrollIntoView({behavior: 'smooth'});
+}
+
+const SEASON_DESC = {
+  '春': '温和、善于创造 - 感觉型：讲感觉、讲状态、持久力强',
+  '夏': '热情、做到顶点 - 感觉型：三分钟成朋友、热情度高但不持久',
+  '秋': '目标感强、拿结果 - 结果型：紧盯目标、平易近人',
+  '冬': '冷静、持久坚持 - 结果型：论持久战、沉稳收获'
+};
+
+const MIX_TYPE = {
+  '春_春': '感觉型 - 双重感性，情绪波动高',
+  '春_夏': '感觉型 - 工作+个人都感性',
+  '春_秋': '矛盾型 - 工作感性/个人目标',
+  '春_冬': '矛盾型 - 工作感性/个人坚持',
+  '夏_春': '感觉型 - 工作热情/个人含蓄',
+  '夏_夏': '感觉型 - 双重热情，情绪起伏',
+  '夏_秋': '矛盾型 - 工作感性/个人目标',
+  '夏_冬': '矛盾型 - 工作感性/个人坚持',
+  '秋_春': '矛盾型 - 工作目标/个人感性',
+  '秋_夏': '矛盾型 - 工作目标/个人感性',
+  '秋_秋': '目标型 - 紧盯目标',
+  '秋_冬': '目标型 - 工作目标/个人坚持',
+  '冬_春': '矛盾型 - 工作坚持/个人感性',
+  '冬_夏': '矛盾型 - 工作坚持/个人感性',
+  '冬_秋': '目标型 - 工作坚持/个人目标',
+  '冬_冬': '目标型 - 双重坚持，持久战'
+};
+
+// 60 甲子-爻位对照表（来自《连山易·人和课》第44页）
+const JIAZI_YAOWEI = {
+  '甲子': 1, '乙丑': 4, '丙寅': 6, '丁卯': 2, '戊辰': 2,
+  '己巳': 6, '庚午': 4, '辛未': 4, '壬申': 5, '癸酉': 6,
+  '甲戌': 6, '乙亥': 5, '丙子': 5, '丁丑': 3, '戊寅': 1,
+  '己卯': 1, '庚辰': 3, '辛巳': 5, '壬午': 4, '癸未': 1,
+  '甲申': 5, '乙酉': 6, '丙戌': 4, '丁亥': 4, '戊子': 6,
+  '己丑': 2, '庚寅': 2, '辛卯': 6, '壬辰': 3, '癸巳': 2,
+  '甲午': 4, '乙未': 1, '丙申': 3, '丁酉': 5, '戊戌': 5,
+  '己亥': 3, '庚子': 1, '辛丑': 1, '壬寅': 2, '癸卯': 3,
+  '甲辰': 3, '乙巳': 2, '丙午': 2, '丁未': 6, '戊申': 4,
+  '己酉': 4, '庚戌': 6, '辛亥': 2, '壬子': 1, '癸丑': 4,
+  '甲寅': 2, '乙卯': 3, '丙辰': 1, '丁巳': 1, '戊午': 3,
+  '己未': 5, '庚申': 5, '辛酉': 3, '壬戌': 6, '癸亥': 5
+};
+
+const YAOWEI_DESC = {
+  1: '一爻（精兵）- 执行具体工作，脚踏实地干实事',
+  2: '二爻（名将）- 做事聚焦，实施能力强，有管理能力',
+  3: '三爻（巡抚）- 万金油，能承上启下，什么都能干',
+  4: '四爻（丞相）- 管理+落地，处理事情能手',
+  5: '五爻（元帅）- 全局策划、管理、下达命令',
+  6: '六爻（军师）- 思想百变，救世主之心'
+};
+
+function renderYaoWei(dayPillar) {
+  const key = dayPillar.gan + dayPillar.zhi;
+  const yao = JIAZI_YAOWEI[key] || 3;
+  let html = `
+    <div class="pillar">
+      <div class="pillar-name">日柱 ${key}</div>
+      <div class="pillar-content">
+        <span class="pillar-trait">${yao}爻</span>
+        ${YAOWEI_DESC[yao]}
+      </div>
+    </div>
+  `;
+  return html;
+}
+
+// 值符（基于年柱查 6甲旬）
+const LIUNIAN_ZHIFU = {
+  '甲子': '值符', '乙丑': '太阳', '丙寅': '伤符', '丁卯': '太阴', '戊辰': '官符',
+  '己巳': '死符', '庚午': '破碎', '辛未': '福德', '壬申': '白虎', '癸酉': '龙德',
+  '甲戌': '吊客', '乙亥': '病符', '丙子': '值符', '丁丑': '太阳', '戊寅': '伤符',
+  '己卯': '太阴', '庚辰': '官符', '辛巳': '死符', '壬午': '破碎', '癸未': '福德',
+  '甲申': '白虎', '乙酉': '龙德', '丙戌': '吊客', '丁亥': '病符', '戊子': '值符',
+  '己丑': '太阳', '庚寅': '伤符', '辛卯': '太阴', '壬辰': '官符', '癸巳': '死符',
+  '甲午': '破碎', '乙未': '福德', '丙申': '白虎', '丁酉': '龙德', '戊戌': '吊客',
+  '己亥': '病符', '庚子': '值符', '辛丑': '太阳', '壬寅': '伤符', '癸卯': '太阴',
+  '甲辰': '官符', '乙巳': '死符', '丙午': '破碎', '丁未': '福德', '戊申': '白虎',
+  '己酉': '龙德', '庚戌': '吊客', '辛亥': '病符', '壬子': '值符', '癸丑': '太阳',
+  '甲寅': '伤符', '乙卯': '太阴', '丙辰': '官符', '丁巳': '死符', '戊午': '破碎',
+  '己未': '福德', '庚申': '白虎', '辛酉': '龙德', '壬戌': '吊客', '癸亥': '病符'
+};
+
+function renderZhifu(yearPillar) {
+  const key = yearPillar.gan + yearPillar.zhi;
+  const zhifu = LIUNIAN_ZHIFU[key] || '值符';
+  return `
+    <div class="pillar">
+      <div class="pillar-name">年柱 ${key} 对应值符</div>
+      <div class="pillar-content">
+        <span class="pillar-trait">${zhifu}</span>
+        ${ZHIFU[zhifu]}
+      </div>
+    </div>
+  `;
+}
+
+function contactLingsister() {
+  alert('请加凌姐微信预约 ¥9.9 30 分钟亲聊\n\n微信号：_________（待凌姐填）');
+}
+</script>
+</body>
+</html>
