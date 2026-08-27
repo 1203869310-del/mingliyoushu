@@ -474,7 +474,7 @@ function calculateBazi() {
   const [year, month, day] = dateInput.split('-').map(Number);
 
   // 排四柱
-  const yearPillar = getYearPillar(year);
+  const yearPillar = getYearPillar(year, month, day);
   const monthPillar = getMonthPillar(year, month, day);
   const dayPillar = getDayPillar(year, month, day);
   const hourPillar = hourInput ? getHourPillar(dayPillar.gan, HOUR_TO_DIZHI[hourInput]) : null;
