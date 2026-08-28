@@ -292,6 +292,17 @@ function getTodayJieQi() {
   return JIEQI_CALENDAR[0];
 }
 
+function getMonthZhiIdx(m, d) {
+  // 节气月: 寅(1)卯(2)辰(3)巳(4)午(5)未(6)申(7)酉(8)戌(9)亥(10)子(11)丑(12)
+  // 公历 1月 = 丑月(12)
+  // 公历 2月 = 丑月(12)(立春前) / 寅月(1)(立春后)
+  // 公历 3-12月 = m-1 月序号
+  // 简化: 不考虑立春 (2月都用寅月)
+  if (m === 1) return 12;  // 丑月
+  if (m === 2) return 1;   // 寅月
+  return m - 1;            // 3月=卯(2), ..., 12月=子(11)
+}
+
 function getTodayGanZhi() {
   const today = new Date();
   const year = today.getFullYear();
@@ -300,6 +311,7 @@ function getTodayGanZhi() {
 
   const TIANGAN_ORDER = ['甲', '乙', '丙', '丁', '戊', '己', '庚', '辛', '壬', '癸'];
   const DIZHI_ORDER = ['子', '丑', '寅', '卯', '辰', '巳', '午', '未', '申', '酉', '戌', '亥'];
+  const monthZhiMap = ['寅','卯','辰','巳','午','未','申','酉','戌','亥','子','丑'];
 
   // 年柱 - 修复版: 2000-02-05 (立春后) = 庚辰 (tg=6, dz=4)
   // 用简化版: 直接用公历年,假设8-9月都是立春后
@@ -327,6 +339,16 @@ function getTodayGanZhi() {
     yearZhi = DIZHI_ORDER[((4 + offset) % 12 + 12) % 12];
   }
 
+  // 月柱 - 节气月 + 年上起月
+  const monthIdx = getMonthZhiIdx(month, day);  // 寅月=1, ..., 丑月=12
+  const ygIdx = TIANGAN_ORDER.indexOf(yearGan);
+  // 年上起月: 甲己年寅月=丙(2), 乙庚年=戊(4), 丙辛年=庚(6), 丁壬年=壬(8), 戊癸年=甲(0)
+  const monthGanStart = [2, 4, 6, 8, 0][ygIdx % 5];
+  // 寅月=monthGanStart, 丑月=monthGanStart-1
+  const monthGanIdx = ((monthGanStart + monthIdx - 1) % 10 + 10) % 10;
+  const monthGan = TIANGAN_ORDER[monthGanIdx];
+  const monthZhi = monthZhiMap[monthIdx - 1];
+
   // 日柱 - 60 甲子循环 (2000-01-01 = 戊午, 在 60 甲子中的位置 = 54)
   const baseDate = new Date(2000, 0, 1);
   const diffDays = Math.floor((today - baseDate) / (1000 * 60 * 60 * 24));
@@ -336,9 +358,12 @@ function getTodayGanZhi() {
 
   return {
     year: yearGan + yearZhi + '年',
+    month: monthGan + monthZhi + '月',
     day: dayGan + dayZhi + '日',
     dayGan: dayGan,
-    dayZhi: dayZhi
+    dayZhi: dayZhi,
+    yearGan: yearGan,
+    yearZhi: yearZhi
   };
 }
 
@@ -396,7 +421,7 @@ window.onload = function() {
 
   // 干支
   const ganzhi = getTodayGanZhi();
-  document.getElementById('todayGanZhi').textContent = ganzhi.year + ' · ' + ganzhi.day;
+  document.getElementById('todayGanZhi').textContent = ganzhi.year + ' · ' + ganzhi.month + ' · ' + ganzhi.day;
 
   // 今日说明书
   const todayGan = ganzhi.dayGan;
