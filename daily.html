@@ -214,30 +214,30 @@ const JIEQI_CALENDAR = [
 
 // 24 节气特性（基于《连山易·人和课》）
 const JIEQI_TIPS = {
-  '小寒': {season: '冬末', desc: '万物开始回阳，宜保暖，进补，收藏'},
-  '大寒': {season: '冬末', desc: '一年最冷，宜家庭团聚，养精蓄锐'},
-  '立春': {season: '春初', desc: '万物复苏，宜立志、计划、播种'},
-  '雨水': {season: '春初', desc: '天降雨水，宜湿润、流动、变化'},
-  '惊蛰': {season: '春中', desc: '春雷惊醒蛰虫，宜唤醒、启发、行动'},
-  '春分': {season: '春中', desc: '昼夜平分，宜平衡、协调、稳定'},
-  '清明': {season: '春末', desc: '天气清明，宜扫墓、追思、传承'},
-  '谷雨': {season: '春末', desc: '雨生百谷，宜生长、滋养、积累'},
-  '立夏': {season: '夏初', desc: '夏季开始，宜立志、展现、活跃'},
-  '小满': {season: '夏初', desc: '麦类籽粒饱满，宜渐进、小成、稳步'},
-  '芒种': {season: '夏中', desc: '有芒作物成熟，宜收获、播种、转折'},
-  '夏至': {season: '夏中', desc: '一年白天最长，宜光明、热烈、释放'},
-  '小暑': {season: '夏末', desc: '天气炎热，宜降温、修身、储蓄'},
-  '大暑': {season: '夏末', desc: '一年最热，宜静心、纳凉、内省'},
-  '立秋': {season: '秋初', desc: '秋季开始，宜收心、规划、启动'},
-  '处暑': {season: '秋初', desc: '暑气结束，宜调节、转换、收尾'},
-  '白露': {season: '秋中', desc: '天气转凉，宜收获、盘点、感恩'},
-  '秋分': {season: '秋中', desc: '昼夜平分，宜平衡、调整、审视'},
-  '寒露': {season: '秋末', desc: '露水更凉，宜珍藏、收敛、内化'},
-  '霜降': {season: '秋末', desc: '开始有霜，宜保护、收敛、深度'},
-  '立冬': {season: '冬初', desc: '冬季开始，宜储藏、规划、静养'},
-  '小雪': {season: '冬初', desc: '开始下雪，宜纯洁、沉淀、思考'},
-  '大雪': {season: '冬中', desc: '降雪量多，宜静心、读书、内修'},
-  '冬至': {season: '冬中', desc: '一年黑夜最长，宜静养、回望、藏精'}
+  '小寒': {season: '冬末', desc: '万物开始回阳，宜保暖，进补，收藏', yi: '保暖、读书、收藏', ji: '受寒、熬夜、动怒'},
+  '大寒': {season: '冬末', desc: '一年最冷，宜家庭团聚，养精蓄锐', yi: '团聚、进补、早睡', ji: '远行、剧烈运动'},
+  '立春': {season: '春初', desc: '万物复苏，宜立志、计划、播种', yi: '立志、规划、运动', ji: '生气、争吵、剪发'},
+  '雨水': {season: '春初', desc: '天降雨水，宜湿润、流动、变化', yi: '喝水、散步、学习新东西', ji: '干燥环境、固执'},
+  '惊蛰': {season: '春中', desc: '春雷惊醒蛰虫，宜唤醒、启发、行动', yi: '叫醒孩子、行动、户外', ji: '赖床、拖延'},
+  '春分': {season: '春中', desc: '昼夜平分，宜平衡、协调、稳定', yi: '平衡生活、早睡早起', ji: '熬夜、偏食'},
+  '清明': {season: '春末', desc: '天气清明，宜扫墓、追思、传承', yi: '扫墓、追忆、讲家族故事', ji: '争吵、说人长短'},
+  '谷雨': {season: '春末', desc: '雨生百谷，宜生长、滋养、积累', yi: '阅读、运动、积累', ji: '生气、暴饮暴食'},
+  '立夏': {season: '夏初', desc: '夏季开始，宜立志、展现、活跃', yi: '户外、运动、表达', ji: '懒散、熬夜'},
+  '小满': {season: '夏初', desc: '麦类籽粒饱满，宜渐进、小成、稳步', yi: '小目标、稳步推进', ji: '贪大、急躁'},
+  '芒种': {season: '夏中', desc: '有芒作物成熟，宜收获、播种、转折', yi: '收获、播种新目标', ji: '犹豫不决'},
+  '夏至': {season: '夏中', desc: '一年白天最长，宜光明、热烈、释放', yi: '户外、社交、运动', ji: '吹空调、贪凉'},
+  '小暑': {season: '夏末', desc: '天气炎热，宜降温、修身、储蓄', yi: '静心、读书、午睡', ji: '剧烈运动、暴晒'},
+  '大暑': {season: '夏末', desc: '一年最热，宜静心、纳凉、内省', yi: '静心、纳凉、反思', ji: '暴晒、动怒'},
+  '立秋': {season: '秋初', desc: '秋季开始，宜收心、规划、启动', yi: '收心、规划、立目标', ji: '松懈、熬夜'},
+  '处暑': {season: '秋初', desc: '暑气结束，宜调节、转换、收尾', yi: '调节作息、收尾旧事', ji: '剧烈运动、贪凉'},
+  '白露': {season: '秋中', desc: '天气转凉，宜收获、盘点、感恩', yi: '盘点、感恩、收获', ji: '抱怨、动怒'},
+  '秋分': {season: '秋中', desc: '昼夜平分，宜平衡、调整、审视', yi: '平衡、审视、自省', ji: '偏激、熬夜'},
+  '寒露': {season: '秋末', desc: '露水更凉，宜珍藏、收敛、内化', yi: '珍藏、内化、收敛', ji: '挥霍、外露'},
+  '霜降': {season: '秋末', desc: '开始有霜，宜保护、收敛、深度', yi: '保暖、深度思考', ji: '受寒、散漫'},
+  '立冬': {season: '冬初', desc: '冬季开始，宜储藏、规划、静养', yi: '进补、静养、规划', ji: '熬夜、剧烈运动'},
+  '小雪': {season: '冬初', desc: '开始下雪，宜纯洁、沉淀、思考', yi: '沉淀、思考、阅读', ji: '浮躁、争吵'},
+  '大雪': {season: '冬中', desc: '降雪量多，宜静心、读书、内修', yi: '读书、内修、静坐', ji: '暴饮暴食、熬夜'},
+  '冬至': {season: '冬中', desc: '一年黑夜最长，宜静养、回望、藏精', yi: '团聚、静养、回望', ji: '远行、剧烈运动'}
 };
 
 // 天干 + 家长提示（基于《连山易·人和篇》天干特质）
@@ -366,29 +366,26 @@ window.onload = function() {
   // 节气
   const jieqi = getTodayJieQi();
   document.getElementById('todayJieQi').textContent = '🌱 ' + jieqi.name + ' · ' + jieqi.season;
-  document.getElementById('jieqiContent').textContent = 
-    jieqi.name + '：' + JIEQI_TIPS[jieqi.name].desc + '（' + jieqi.season + '）';
-  
+  const jq = JIEQI_TIPS[jieqi.name];
+  document.getElementById('jieqiContent').innerHTML =
+    '<strong>' + jieqi.name + '</strong>：' + jq.desc + '（' + jieqi.season + '）<br><br>' +
+    '✅ <strong>今天宜</strong>：' + jq.yi + '<br><br>' +
+    '❌ <strong>今天忌</strong>：' + jq.ji;
+
   // 干支
   const ganzhi = getTodayGanZhi();
   document.getElementById('todayGanZhi').textContent = ganzhi.year + ' · ' + ganzhi.day;
-  
+
   // 今日说明书
   const todayGan = ganzhi.dayGan;
   const zhifu = getLiuNianZhiFu(today.getFullYear());
-  
-  let dailyTipText = '【今日干支】' + ganzhi.dayGan + ' · ' + JIEQI_TIPS[jieqi.name].desc + '
 
-';
-  dailyTipText += '【今日天干特质】
-' + GAN_PARENT_TIPS[todayGan] + '
+  let dailyTipText = '【今日干支】' + ganzhi.dayGan + ' · ' + jq.desc + '\n\n';
+  dailyTipText += '【今日天干特质】\n' + GAN_PARENT_TIPS[todayGan] + '\n\n';
+  dailyTipText += '【今年值符提示】\n' + ZHIFU_TIPS[zhifu];
 
-';
-  dailyTipText += '【今年值符提示】
-' + ZHIFU_TIPS[zhifu];
-  
   document.getElementById('dailyTip').textContent = dailyTipText;
-  
+
   // 家长能做的事
   let parentTip = '✅ 今天宜：';
   if (ganzhi.dayGan === '甲' || ganzhi.dayGan === '庚') {
@@ -406,10 +403,8 @@ window.onload = function() {
   } else if (ganzhi.dayGan === '壬') {
     parentTip += '关心孩子累不累';
   }
-  parentTip += '
+  parentTip += '\n\n❌ 今天忌：催促、比较、否定';
 
-❌ 今天忌：催促、比较、否定';
-  
   document.getElementById('parentTip').textContent = parentTip;
   
   // 加载保存的孩子说明书
