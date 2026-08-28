@@ -327,10 +327,10 @@ function getTodayGanZhi() {
     yearZhi = DIZHI_ORDER[((4 + offset) % 12 + 12) % 12];
   }
 
-  // 日柱 - 用 60 甲子循环 (2000-01-01 = 戊午 = 第 31 位)
+  // 日柱 - 60 甲子循环 (2000-01-01 = 戊午, 在 60 甲子中的位置 = 54)
   const baseDate = new Date(2000, 0, 1);
   const diffDays = Math.floor((today - baseDate) / (1000 * 60 * 60 * 24));
-  const offset = (diffDays + 31) % 60;  // 2000-01-01 = 戊午
+  const offset = (diffDays + 54) % 60;  // 2000-01-01 = 戊午 (位置 54)
   const dayGan = TIANGAN_ORDER[offset % 10];
   const dayZhi = DIZHI_ORDER[offset % 12];
 
