@@ -77,10 +77,10 @@
 ```
 👉 想看更具体的命盘？
 对命盘有具体疑问的读者，可以加凌姐微信预约 ¥9.9/30 分钟。
-📱 [点击预约亲聊](https://1203869310-del.github.io/mingliyoushu/booking.html)
+📱 [点击预约亲聊](https://mingliyoushu-1326848460.cos-website.ap-shanghai.myqcloud.com/booking.html)
 凌姐亲自看八字，给你具体建议，不是 AI 模板套话。
 
-🌿 或者每天看节气提示：[每日说明书](https://1203869310-del.github.io/mingliyoushu/daily.html)
+🌿 或者每天看节气提示：[每日说明书](https://mingliyoushu-1326848460.cos-website.ap-shanghai.myqcloud.com/daily.html)
 
 ---
 

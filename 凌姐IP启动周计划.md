@@ -250,11 +250,11 @@ AI 写不出"上周帮一个妈妈看孩子"这种内容
 
 | 用途 | URL |
 |---|---|
-| 朋友圈签名 | https://1203869310-del.github.io/mingliyoushu/ |
-| 引导预约 | https://1203869310-del.github.io/mingliyoushu/booking.html |
-| 引导看今天 | https://1203869310-del.github.io/mingliyoushu/daily.html |
-| 引导看全年 | https://1203869310-del.github.io/mingliyoushu/calendar.html |
-| 给粉丝教程 | https://1203869310-del.github.io/mingliyoushu/guide.html |
+| 朋友圈签名 | https://mingliyoushu-1326848460.cos-website.ap-shanghai.myqcloud.com/ |
+| 引导预约 | https://mingliyoushu-1326848460.cos-website.ap-shanghai.myqcloud.com/booking.html |
+| 引导看今天 | https://mingliyoushu-1326848460.cos-website.ap-shanghai.myqcloud.com/daily.html |
+| 引导看全年 | https://mingliyoushu-1326848460.cos-website.ap-shanghai.myqcloud.com/calendar.html |
+| 给粉丝教程 | https://mingliyoushu-1326848460.cos-website.ap-shanghai.myqcloud.com/guide.html |
 
 ---
 
