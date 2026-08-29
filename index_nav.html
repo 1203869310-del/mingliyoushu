@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>凌姐·连山易传承人 · 命里有数</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif;
+    background: linear-gradient(135deg, #f5e8c8 0%, #e8d8a8 100%);
+    color: #333;
+    line-height: 1.7;
+    min-height: 100vh;
+  }
+  .container { max-width: 480px; margin: 0 auto; padding: 24px 20px; }
+
+  .header { text-align: center; padding: 30px 0 24px; }
+  .title { font-size: 32px; color: #8b4513; font-weight: bold; letter-spacing: 4px; margin-bottom: 8px; }
+  .subtitle { font-size: 16px; color: #6b4423; margin-bottom: 6px; }
+  .signature { font-size: 13px; color: #8b6f47; }
+
+  .welcome-card {
+    background: linear-gradient(135deg, #fff8e8, #fdf0d0);
+    border-radius: 16px;
+    padding: 20px;
+    margin-bottom: 20px;
+    border: 1px solid #d4b483;
+    text-align: center;
+  }
+  .welcome-title { font-size: 16px; color: #8b4513; margin-bottom: 8px; font-weight: bold; }
+  .welcome-desc { font-size: 13px; color: #5b3413; line-height: 1.7; }
+
+  .tool-card {
+    background: #fff;
+    border-radius: 16px;
+    padding: 20px;
+    margin-bottom: 16px;
+    box-shadow: 0 4px 12px rgba(139, 69, 19, 0.1);
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    transition: transform 0.1s;
+  }
+  .tool-card:active {
+    transform: scale(0.98);
+  }
+  .tool-icon {
+    font-size: 28px;
+    margin-bottom: 8px;
+    display: inline-block;
+  }
+  .tool-title {
+    font-size: 18px;
+    font-weight: bold;
+    color: #8b4513;
+    margin-bottom: 6px;
+  }
+  .tool-desc {
+    font-size: 14px;
+    color: #5b3413;
+    margin-bottom: 12px;
+  }
+  .tool-action {
+    font-size: 13px;
+    color: #8b4513;
+    background: #fdf8f0;
+    padding: 6px 12px;
+    border-radius: 6px;
+    display: inline-block;
+  }
+
+  .about-card {
+    background: rgba(139, 69, 19, 0.05);
+    border-radius: 12px;
+    padding: 16px;
+    margin: 20px 0;
+    font-size: 13px;
+    color: #5b3413;
+    text-align: center;
+    line-height: 1.7;
+  }
+
+  .footer {
+    text-align: center;
+    padding: 20px 0;
+    color: #8b6f47;
+    font-size: 12px;
+  }
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="header">
+    <div class="title">命里有数</div>
+    <div class="subtitle">凌姐·连山易传承人</div>
+    <div class="signature">真实易经判断 · 不靠 AI 编</div>
+  </div>
+
+  <div class="welcome-card">
+    <div class="welcome-title">👋 你好，我是凌姐</div>
+    <div class="welcome-desc">
+      我整理《连山易·人和篇》3-4 年，<br>
+      下面是给你准备的 4 个工具——<br>
+      找到一个适合你的，开始吧。
+    </div>
+  </div>
+
+  <a href="index.html" class="tool-card">
+    <div class="tool-icon">💬</div>
+    <div class="tool-title">预约亲聊</div>
+    <div class="tool-desc">
+      ¥9.9 · 30 分钟<br>
+      凌姐亲自看八字 · 真实判断<br>
+      适合：想知道具体建议的人
+    </div>
+    <div class="tool-action">📱 加微信 →</div>
+  </a>
+
+  <a href="daily.html" class="tool-card">
+    <div class="tool-icon">🌱</div>
+    <div class="tool-title">每日说明书</div>
+    <div class="tool-desc">
+      今天适合教孩子什么？<br>
+      节气 + 干支 + 宜忌<br>
+      适合：每天打开一次的家长
+    </div>
+    <div class="tool-action">🌿 看今天 →</div>
+  </a>
+
+  <a href="calendar.html" class="tool-card">
+    <div class="tool-icon">📅</div>
+    <div class="tool-title">24 节气内容日历</div>
+    <div class="tool-desc">
+      凌姐未来要写的 24 个节气选题<br>
+      白露 / 处暑 / 立冬 ··· 全年节奏<br>
+      适合：想跟凌姐一起学习的人
+    </div>
+    <div class="tool-action">📋 看日历 →</div>
+  </a>
+
+  <a href="guide.html" class="tool-card">
+    <div class="tool-icon">📝</div>
+    <div class="tool-title">写公众号教程</div>
+    <div class="tool-desc">
+      凌姐用 Kimi 写文章的 3 个模板<br>
+      5 步工作流 · 凌姐原则 6 条<br>
+      适合：想自己写公众号的人
+    </div>
+    <div class="tool-action">🎓 看教程 →</div>
+  </a>
+
+  <div class="about-card">
+    ⚠️ <strong>说明</strong><br>
+    这些工具基于连山易·人和篇的逻辑整理<br>
+    AI 模板仅供参考，<strong>真人咨询才</strong>是凌姐的专业判断<br>
+    <br>
+    <span style="font-size: 11px;">微信号：13216966131</span>
+  </div>
+
+  <div class="footer">
+    凌姐·连山易传承人 · 命里有数 MVP<br>
+    <span style="font-size: 11px;">所有工具免费 · 真人亲聊 ¥9.9/30 分钟</span>
+  </div>
+</div>
+</body>
+</html>
