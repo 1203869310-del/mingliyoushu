@@ -152,8 +152,15 @@
     <div class="form-hint">为了给"今日说明书"配上孩子的说明书，请填孩子的生日。<br>不填也行，会给通用节气提示。</div>
     
     <div class="form-group">
-      <label class="form-label">出生日期</label>
+      <label class="form-label">📅 出生日期（请选公历或农历）</label>
+      <select id="childCalendarType" class="form-select" style="margin-bottom: 8px;">
+        <option value="公历">📅 公历（阳历）</option>
+        <option value="农历">🌾 农历（阴历/旧历）</option>
+      </select>
       <input type="date" id="childBirthDate" class="form-input">
+      <div style="font-size: 12px; color: #8b6f47; margin-top: 4px;">
+        💡 凌姐需要知道是公历还是农历——公历是手机日历显示的日期
+      </div>
     </div>
     
     <button class="btn-primary" onclick="saveChild()">💾 保存孩子的说明书</button>
@@ -472,19 +479,25 @@ window.onload = function() {
   
   // 加载保存的孩子说明书
   const savedChildShuomingshu = localStorage.getItem('child_birthdate');
+  const savedCalendarType = localStorage.getItem('child_calendar_type');
   if (savedChildShuomingshu) {
     document.getElementById('childBirthDate').value = savedChildShuomingshu;
+  }
+  if (savedCalendarType) {
+    document.getElementById('childCalendarType').value = savedCalendarType;
   }
 };
 
 function saveChild() {
   const date = document.getElementById('childBirthDate').value;
+  const calendarType = document.getElementById('childCalendarType').value;
   if (!date) {
     alert('请填孩子的出生日期');
     return;
   }
+  localStorage.setItem('child_calendar_type', calendarType);
   localStorage.setItem('child_birthdate', date);
-  alert('已保存！明天打开页面会基于孩子的说明书提示。');
+  alert(`已保存！（${calendarType} ${date}）明天打开页面会基于孩子的说明书提示。`);
 }
 
 function contactLingsister() {
