@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>凌姐·连山易亲聊预约 - 易经咨询</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif;
+    background: linear-gradient(135deg, #f5e8c8 0%, #e8d8a8 100%);
+    color: #333;
+    line-height: 1.7;
+    min-height: 100vh;
+  }
+  .container { max-width: 480px; margin: 0 auto; padding: 24px 20px; }
+  .header { text-align: center; padding: 24px 0 16px; }
+  .title { font-size: 30px; color: #8b4513; font-weight: bold; letter-spacing: 4px; margin-bottom: 6px; }
+  .subtitle { font-size: 15px; color: #6b4423; }
+  .signature { font-size: 13px; color: #8b6f47; margin-top: 8px; }
+
+  .card {
+    background: #fff;
+    border-radius: 16px;
+    padding: 24px;
+    margin: 16px 0;
+    box-shadow: 0 4px 12px rgba(139, 69, 19, 0.1);
+  }
+
+  .service-title {
+    font-size: 20px;
+    color: #8b4513;
+    text-align: center;
+    margin-bottom: 12px;
+    font-weight: bold;
+  }
+  .service-subtitle {
+    font-size: 13px;
+    color: #8b6f47;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  .service-item {
+    background: linear-gradient(135deg, #fdf8f0, #fff8e8);
+    border-radius: 12px;
+    padding: 16px;
+    margin-bottom: 12px;
+    border-left: 3px solid #8b4513;
+  }
+  .service-name { font-size: 16px; color: #8b4513; font-weight: bold; margin-bottom: 6px; }
+  .service-desc { font-size: 14px; color: #5b3413; }
+  .service-meta { font-size: 12px; color: #8b6f47; margin-top: 6px; }
+
+  .price { font-size: 32px; color: #8b4513; font-weight: bold; }
+  .price-unit { font-size: 14px; color: #8b6f47; }
+
+  .form-group { margin-bottom: 16px; }
+  .form-label {
+    display: block;
+    font-size: 14px;
+    color: #6b4423;
+    margin-bottom: 6px;
+    font-weight: 500;
+  }
+  .form-input, .form-select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #d4b483;
+    border-radius: 8px;
+    font-size: 15px;
+    background: #fdf8f0;
+    color: #333;
+  }
+  .form-textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #d4b483;
+    border-radius: 8px;
+    font-size: 14px;
+    background: #fdf8f0;
+    color: #333;
+    min-height: 80px;
+    resize: vertical;
+  }
+
+  .btn-primary {
+    width: 100%;
+    padding: 16px;
+    background: #8b4513;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-size: 17px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  .btn-primary:active { background: #6b3410; }
+
+  .footer {
+    text-align: center;
+    padding: 24px 0;
+    color: #8b6f47;
+    font-size: 12px;
+  }
+
+  .notice {
+    background: rgba(139, 69, 19, 0.08);
+    border-radius: 8px;
+    padding: 12px;
+    margin: 16px 0;
+    font-size: 12px;
+    color: #5b3413;
+    line-height: 1.5;
+  }
+
+  /* 加微信弹窗 */
+  .modal-bg {
+    position: fixed; top:0; left:0; width:100%; height:100%;
+    background: rgba(0,0,0,0.7);
+    display: flex; align-items: center; justify-content: center;
+    z-index: 9999;
+  }
+  .modal-card {
+    background: #fff8e8; border-radius: 16px; padding: 24px;
+    max-width: 320px; text-align: center; position: relative;
+  }
+  .modal-close {
+    position: absolute; top: 8px; right: 12px;
+    font-size: 24px; cursor: pointer; color: #8b4513;
+  }
+  .modal-title { color: #8b4513; margin-bottom: 12px; font-size: 20px; font-weight: bold; }
+  .qr-img {
+    width: 200px; height: 200px;
+    border: 2px solid #8b4513; border-radius: 8px;
+    margin-bottom: 12px;
+  }
+  .wechat-id {
+    background: #8b4513; color: #fff; padding: 10px;
+    border-radius: 8px; font-size: 18px; font-weight: bold;
+    letter-spacing: 2px;
+  }
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="header">
+    <div class="title">易经亲聊</div>
+    <div class="subtitle">凌姐·连山易传承人</div>
+    <div class="signature">真实易经判断 · 不靠 AI 编</div>
+  </div>
+
+  <!-- 服务介绍 -->
+  <div class="card">
+    <div class="service-title">你能得到什么</div>
+    <div class="service-subtitle">凌姐亲自看 · 30 分钟语音/视频</div>
+
+    <div class="service-item">
+      <div class="service-name">📜 命盘分析</div>
+      <div class="service-desc">基于你的生辰八字，凌姐亲自分析你的性格特质、适合方向、注意事项</div>
+      <div class="service-meta">不靠 AI 模板，靠凌姐 3-4 年实战经验</div>
+    </div>
+
+    <div class="service-item">
+      <div class="service-name">💼 事业咨询</div>
+      <div class="service-desc">结合你的命盘 + 当前运势，凌姐给你具体的事业方向建议</div>
+      <div class="service-meta">从连山易·人和篇出发，给真实建议</div>
+    </div>
+
+    <div class="service-item">
+      <div class="service-name">👶 亲子天赋</div>
+      <div class="service-desc">给孩子看说明书——什么样的孩子适合什么样的教育</div>
+      <div class="service-meta">凌姐亲测 3-4 年连山易·人和篇</div>
+    </div>
+
+    <div class="service-item">
+      <div class="service-name">💑 感情咨询</div>
+      <div class="service-desc">看你的感情说明书 + 当前流年走势</div>
+      <div class="service-meta">不是模板套话，是凌姐的真实判断</div>
+    </div>
+  </div>
+
+  <div class="card" style="text-align: center;">
+    <div class="price">¥9.9</div>
+    <div class="price-unit">30 分钟 · 语音/视频</div>
+    <div style="margin-top: 16px; font-size: 13px; color: #8b6f47;">约时间 · 加微信 · 凌姐亲自回</div>
+  </div>
+
+  <!-- 预约表单 -->
+  <div class="card">
+    <div class="form-group">
+      <label class="form-label">📅 出生日期</label>
+      <input type="date" id="birthDate" class="form-input">
+    </div>
+
+    <div class="form-group">
+      <label class="form-label">⏰ 出生时辰</label>
+      <select id="birthHour" class="form-select">
+        <option value="">不知道/不确定</option>
+        <option value="23-01">23:00-01:00（子时）</option>
+        <option value="01-03">01:00-03:00（丑时）</option>
+        <option value="03-05">03:00-05:00（寅时）</option>
+        <option value="05-07">05:00-07:00（卯时）</option>
+        <option value="07-09">07:00-09:00（辰时）</option>
+        <option value="09-11">09:00-11:00（巳时）</option>
+        <option value="11-13">11:00-13:00（午时）</option>
+        <option value="13-15">13:00-15:00（未时）</option>
+        <option value="15-17">15:00-17:00（申时）</option>
+        <option value="17-19">17:00-19:00（酉时）</option>
+        <option value="19-21">19:00-21:00（戌时）</option>
+        <option value="21-23">21:00-23:00（亥时）</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label class="form-label">📝 你想问什么（选填）</label>
+      <textarea id="question" class="form-textarea" placeholder="比如：今年适合换工作吗？孩子适合学什么专业？和伴侣的关系怎么处理？"></textarea>
+    </div>
+
+    <button class="btn-primary" onclick="submitBooking()">📱 填好后加微信预约</button>
+  </div>
+
+  <div class="notice">
+    ⚠️ <strong>为什么不用 AI 排盘？</strong><br>
+    AI 给的命盘解读是模板，不能替代真人实战。凌姐有 3-4 年连山易实战经验，<strong>真人看 + 真人答</strong>才是真价值。
+  </div>
+
+  <div class="footer">
+    凌姐 · 连山易传承人<br>
+    <span style="font-size: 11px;">本页不替代 AI 命盘，仅作咨询预约</span>
+  </div>
+</div>
+
+<script>
+function submitBooking() {
+  const date = document.getElementById('birthDate').value;
+  const hour = document.getElementById('birthHour').value;
+  const question = document.getElementById('question').value;
+
+  if (!date) {
+    alert('请填出生日期，凌姐需要这个才能提前准备');
+    return;
+  }
+
+  // 保存到 localStorage, 凌姐的微信里加好友后用户可以再聊
+  localStorage.setItem('booking_date', date);
+  localStorage.setItem('booking_hour', hour || '未填');
+  localStorage.setItem('booking_question', question || '未填');
+
+  // 弹二维码
+  const wechatId = '13216966131';
+  const qrUrl = 'https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=weixin://contact?username=' + wechatId;
+  const modal = document.createElement('div');
+  modal.className = 'modal-bg';
+  modal.innerHTML = `
+    <div class="modal-card">
+      <div class="modal-close" onclick="this.parentElement.parentElement.remove()">×</div>
+      <div class="modal-title">加凌姐微信</div>
+      <img src="${qrUrl}" class="qr-img" alt="二维码"/>
+      <p style="color:#5b3413;margin-bottom:8px;font-size:14px;">长按识别二维码 / 搜索微信号</p>
+      <div class="wechat-id">${wechatId}</div>
+      <p style="color:#8b6f47;margin-top:12px;font-size:13px;">加好友后告知：<strong>¥9.9 预约亲聊</strong></p>
+    </div>
+  `;
+  document.body.appendChild(modal);
+}
+</script>
+</body>
+</html>
