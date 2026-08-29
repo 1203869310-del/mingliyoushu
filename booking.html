@@ -189,8 +189,15 @@
   <!-- 预约表单 -->
   <div class="card">
     <div class="form-group">
-      <label class="form-label">📅 出生日期</label>
+      <label class="form-label">📅 出生日期（请选公历或农历）</label>
+      <select id="calendarType" class="form-select" style="margin-bottom: 8px;">
+        <option value="公历">📅 公历（阳历）</option>
+        <option value="农历">🌾 农历（阴历/旧历）</option>
+      </select>
       <input type="date" id="birthDate" class="form-input">
+      <div style="font-size: 12px; color: #8b6f47; margin-top: 4px;">
+        💡 凌姐需要知道是公历还是农历——公历是手机日历显示的日期
+      </div>
     </div>
 
     <div class="form-group">
@@ -235,6 +242,7 @@
 function submitBooking() {
   const date = document.getElementById('birthDate').value;
   const hour = document.getElementById('birthHour').value;
+  const calendarType = document.getElementById('calendarType').value;
   const question = document.getElementById('question').value;
 
   if (!date) {
@@ -243,11 +251,12 @@ function submitBooking() {
   }
 
   // 保存到 localStorage, 凌姐的微信里加好友后用户可以再聊
+  localStorage.setItem('booking_calendar_type', calendarType);
   localStorage.setItem('booking_date', date);
   localStorage.setItem('booking_hour', hour || '未填');
   localStorage.setItem('booking_question', question || '未填');
 
-  // 弹二维码
+  // 弹二维码 + 显示用户填的信息提示
   const wechatId = '13216966131';
   const qrUrl = 'https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=weixin://contact?username=' + wechatId;
   const modal = document.createElement('div');
@@ -259,7 +268,14 @@ function submitBooking() {
       <img src="${qrUrl}" class="qr-img" alt="二维码"/>
       <p style="color:#5b3413;margin-bottom:8px;font-size:14px;">长按识别二维码 / 搜索微信号</p>
       <div class="wechat-id">${wechatId}</div>
-      <p style="color:#8b6f47;margin-top:12px;font-size:13px;">加好友后告知：<strong>¥9.9 预约亲聊</strong></p>
+      <div style="background:#fdf8f0;border-radius:8px;padding:12px;margin-top:12px;font-size:13px;color:#5b3413;text-align:left;">
+        <strong>加好友后请告诉凌姐：</strong><br>
+        · 日历：${calendarType}<br>
+        · 日期：${date}<br>
+        · 时辰：${hour || '未填'}<br>
+        · 问：${question || '未填'}<br>
+        · ¥9.9 预约亲聊
+      </div>
     </div>
   `;
   document.body.appendChild(modal);
