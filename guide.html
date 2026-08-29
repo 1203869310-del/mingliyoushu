@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>用 Kimi 帮你写易经公众号 · 凌姐教程</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif;
+    background: linear-gradient(135deg, #f5e8c8 0%, #e8d8a8 100%);
+    color: #333;
+    line-height: 1.7;
+    min-height: 100vh;
+  }
+  .container { max-width: 640px; margin: 0 auto; padding: 24px 20px; }
+
+  .header { text-align: center; padding: 24px 0 16px; }
+  .title { font-size: 28px; color: #8b4513; font-weight: bold; letter-spacing: 2px; margin-bottom: 8px; }
+  .subtitle { font-size: 14px; color: #6b4423; }
+
+  .card {
+    background: #fff;
+    border-radius: 16px;
+    padding: 24px;
+    margin: 16px 0;
+    box-shadow: 0 4px 12px rgba(139, 69, 19, 0.1);
+  }
+
+  .section-title {
+    font-size: 20px;
+    color: #8b4513;
+    font-weight: bold;
+    margin: 24px 0 12px 0;
+    padding-left: 12px;
+    border-left: 4px solid #8b4513;
+  }
+
+  .why-box {
+    background: linear-gradient(135deg, #fdf8f0, #fff8e8);
+    border-radius: 12px;
+    padding: 16px;
+    margin-bottom: 12px;
+    border-left: 3px solid #8b4513;
+  }
+  .why-name { font-weight: bold; color: #8b4513; margin-bottom: 4px; }
+  .why-desc { font-size: 14px; color: #5b3413; }
+
+  .prompt-box {
+    background: #2d2d2d;
+    color: #f0f0f0;
+    border-radius: 8px;
+    padding: 16px;
+    font-family: -apple-system, "SF Mono", Menlo, monospace;
+    font-size: 13px;
+    white-space: pre-wrap;
+    margin: 12px 0;
+    line-height: 1.6;
+  }
+  .prompt-label {
+    font-size: 12px;
+    color: #8b6f47;
+    margin-bottom: 6px;
+    font-weight: bold;
+  }
+
+  .principle-item {
+    background: #fdf8f0;
+    border-radius: 8px;
+    padding: 12px 16px;
+    margin: 8px 0;
+    display: flex;
+    align-items: flex-start;
+  }
+  .principle-check {
+    color: #8b4513;
+    font-weight: bold;
+    margin-right: 10px;
+    flex-shrink: 0;
+  }
+  .principle-text {
+    font-size: 14px;
+    color: #5b3413;
+  }
+  .principle-text strong { color: #8b4513; }
+
+  .warning-box {
+    background: rgba(200, 50, 50, 0.05);
+    border-left: 3px solid #c83232;
+    border-radius: 4px;
+    padding: 12px 16px;
+    margin: 12px 0;
+    font-size: 13px;
+    color: #5b2020;
+  }
+  .warning-box strong { color: #c83232; }
+
+  .step-list {
+    counter-reset: step;
+    list-style: none;
+    padding: 0;
+  }
+  .step-list li {
+    counter-increment: step;
+    position: relative;
+    padding: 12px 12px 12px 48px;
+    margin: 12px 0;
+    background: #fdf8f0;
+    border-radius: 8px;
+    min-height: 50px;
+  }
+  .step-list li::before {
+    content: counter(step);
+    position: absolute;
+    left: 12px;
+    top: 12px;
+    width: 28px;
+    height: 28px;
+    background: #8b4513;
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 14px;
+  }
+  .step-time {
+    font-size: 11px;
+    color: #8b6f47;
+    background: #fff8e8;
+    padding: 2px 8px;
+    border-radius: 10px;
+    margin-left: 8px;
+    font-weight: normal;
+  }
+
+  .footer {
+    text-align: center;
+    padding: 24px 0;
+    color: #8b6f47;
+    font-size: 12px;
+  }
+
+  .link-card {
+    background: linear-gradient(135deg, #fff8e8, #fdf0d0);
+    border-radius: 12px;
+    padding: 16px;
+    margin: 16px 0;
+    text-align: center;
+    border: 2px solid #8b4513;
+  }
+  .link-card a {
+    color: #8b4513;
+    text-decoration: none;
+    font-weight: bold;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 12px 0;
+    font-size: 14px;
+  }
+  th, td {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #e8d8a8;
+  }
+  th {
+    background: #fdf8f0;
+    color: #8b4513;
+    font-weight: bold;
+  }
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="header">
+    <div class="title">📝 用 Kimi 写公众号</div>
+    <div class="subtitle">凌姐·连山易传承人 · 专属教程</div>
+  </div>
+
+  <div class="card">
+    <div class="section-title">一、为什么用 Kimi？</div>
+    <div class="why-box">
+      <div class="why-name">✅ 优势</div>
+      <div class="why-desc">
+        免费（每天 50 次对话够用）· 长文本 · 联网搜资料 + 列引用来源 · 中文自然不模板
+      </div>
+    </div>
+    <div class="why-box" style="border-left-color: #c83232;">
+      <div class="why-name">❌ 不推荐</div>
+      <div class="why-desc">
+        文心一言（¥49.9/月）· 通义千问（没优势）· 豆包（适合短视频脚本）
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="section-title">二、3 个 Prompt 模板</div>
+    <p style="font-size: 14px; color: #5b3413;">直接复制 → 替换 <code>[凌姐填]</code> → 粘贴到 Kimi</p>
+
+    <div class="prompt-label">📝 模板 1 · 24 节气科普</div>
+    <div class="prompt-box">你是连山易·人和篇的整理者。请基于《连山易·人和篇》写一篇 600 字左右的公众号文章。
+
+要求：
+1. 主题：[凌姐填具体节气名]
+2. 文风：温和、克制、不夸张、不算命
+3. 必须引用：《连山易·人和篇》（注明章节）
+4. 避免：AI 模板感、"你应该..."说教口吻
+5. 适合：30-40 岁家长阅读，公众号订阅号
+6. 结构：开头钩子 + 3 个节气案例 + 结尾升华（不要带货）</div>
+
+    <div class="prompt-label">📝 模板 2 · 命盘科普</div>
+    <div class="prompt-box">你是连山易科普作者。请写一篇 800 字左右的公众号文章，主题：[主题]。
+
+要求：
+1. 解释一个易经概念（比如"八字"、"六爻"、"值符"等）
+2. 文风：温和、真实、举具体例子
+3. 引用《连山易·人和篇》具体章节
+4. 结尾给一个"读者能立即试"的行动建议
+5. 避免算命话术（"你今年会..."）</div>
+
+    <div class="prompt-label">📝 模板 3 · 真实案例</div>
+    <div class="prompt-box">我是连山易传承人 [凌姐名字]。请帮我整理一篇 600 字公众号文章。
+
+素材：
+- 客户情况：[填：年龄 / 大致困扰 / 我的建议]
+- 我的核心判断：[填你给的建议是什么]
+- 客户的后续：[填执行后的反馈]
+
+要求：
+1. 文风：像我自己的公众号文章（参考凌姐的"古人没有温度计"风格）
+2. 不要算命口吻，要"观察 + 行动"风格
+3. 开头用一个画面或反问
+4. 结尾给读者一个可以立即试的小行动
+5. 不要超过 800 字</div>
+  </div>
+
+  <div class="card">
+    <div class="section-title">三、5 步工作流</div>
+    <ol class="step-list">
+      <li><strong>选题</strong><span class="step-time">5 分钟</span><br>看节气/季节 → 选一个贴合的主题</li>
+      <li><strong>Kimi 出初稿</strong><span class="step-time">5 分钟</span><br>复制模板 → 替换 [凌姐填] → 等输出</li>
+      <li><strong>加你自己的东西</strong><span class="step-time">15 分钟</span><br>加真实案例 + 删 AI 味 + 加结尾行动</li>
+      <li><strong>我来排版 + 出图</strong><span class="step-time">5 分钟</span><br>把 MD 发我 → 我排版 + 海报 + 朋友圈</li>
+      <li><strong>发</strong><span class="step-time">1 分钟</span><br>公众号长文 + 朋友圈短文案 + 工具 2 链接</li>
+    </ol>
+  </div>
+
+  <div class="card">
+    <div class="section-title">四、凌姐原则 6 条（必须记住）</div>
+    <div class="principle-item">
+      <span class="principle-check">✅</span>
+      <span class="principle-text"><strong>AI 写的是骨架，你是灵魂</strong><br>真实案例 + 个人语气 = 你的护城河</span>
+    </div>
+    <div class="principle-item">
+      <span class="principle-check">✅</span>
+      <span class="principle-text"><strong>加你做过的咨询</strong><br>AI 不知道你 3-4 年做过什么</span>
+    </div>
+    <div class="principle-item">
+      <span class="principle-check">✅</span>
+      <span class="principle-text"><strong>删 AI 味的句子</strong><br>"此外"、"综上所述"读者一眼看出</span>
+    </div>
+    <div class="principle-item">
+      <span class="principle-check">✅</span>
+      <span class="principle-text"><strong>结尾必给行动</strong><br>不给行动的公众号没人收藏</span>
+    </div>
+    <div class="principle-item">
+      <span class="principle-check">✅</span>
+      <span class="principle-text"><strong>不编故事</strong><br>你立的 fact_store 红线</span>
+    </div>
+    <div class="principle-item">
+      <span class="principle-check">✅</span>
+      <span class="principle-text"><strong>引用《连山易》具体章节</strong><br>Kimi 自动列来源——你 IP 的可信度</span>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="section-title">五、不做的清单（保护你 IP）</div>
+    <div class="warning-box">
+      ❌ <strong>让 Kimi 编"读者私信反馈"</strong> — AI 不会收到私信
+    </div>
+    <div class="warning-box">
+      ❌ <strong>让 Kimi 编"我的真实经历"</strong> — AI 没有真实经历
+    </div>
+    <div class="warning-box">
+      ❌ <strong>让 Kimi 给"今年运势"</strong> — 这是算命话术，凌姐你已经有 ¥9.9 真人亲聊
+    </div>
+    <div class="warning-box">
+      ❌ <strong>把 AI 写的内容直接发</strong> — 必须凌姐你过一遍
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="section-title">六、紧急联系</div>
+    <table>
+      <tr><th>问题</th><th>解决</th></tr>
+      <tr><td>Kimi 网页版打不开</td><td>换 智谱清言（zhipuai.cn）做备用</td></tr>
+      <tr><td>输出太长/太短</td><td>在 Prompt 里加"严格 600 字"</td></tr>
+      <tr><td>输出"AI 味"</td><td>加"避免'此外''综上所述'这种 AI 写作痕迹"</td></tr>
+      <tr><td>没有引用来源</td><td>加"必须在文末注明引用来源"</td></tr>
+    </table>
+  </div>
+
+  <div class="card">
+    <div class="section-title">七、第一次试（凌姐明天就能做）</div>
+    <p style="font-size: 14px; color: #5b3413; line-height: 1.8;">
+      1. 打开 <strong>kimi.moonshot.cn</strong><br>
+      2. 复制"模板 1"<br>
+      3. 把 [凌姐填] 替换为"<strong>处暑</strong>"<br>
+      4. 等输出<br>
+      5. 把你做过的"处暑看孩子的妈妈"案例（如果有）加进去<br>
+      6. 发我 → 我排版 + 出图 + 朋友圈版本
+    </p>
+  </div>
+
+  <div class="link-card">
+    <div style="margin-bottom: 12px; font-size: 14px; color: #5b3413;">配套工具 ↓</div>
+    <a href="https://1203869310-del.github.io/mingliyoushu/daily.html" style="display: block; padding: 8px 0;">
+      🌱 每日说明书 · 凌姐·连山易
+    </a>
+  </div>
+
+  <div class="link-card">
+    <div style="margin-bottom: 12px; font-size: 14px; color: #5b3413;">预约亲聊 ↓</div>
+    <a href="https://1203869310-del.github.io/mingliyoushu/index.html" style="display: block; padding: 8px 0;">
+      💬 ¥9.9 30 分钟亲聊 · 凌姐
+    </a>
+  </div>
+
+  <div class="footer">
+    凌姐·连山易传承人 · 命里有数<br>
+    <span style="font-size: 11px;">本页是工具 3 · 写公众号教程</span>
+  </div>
+</div>
+</body>
+</html>

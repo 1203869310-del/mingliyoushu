@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>凌姐·24 节气内容日历</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, "PingFang SC", sans-serif;
+    background: linear-gradient(135deg, #f5e8c8 0%, #e8d8a8 100%);
+    color: #333;
+    line-height: 1.7;
+    padding: 20px;
+  }
+  .container { max-width: 720px; margin: 0 auto; }
+  .header { text-align: center; padding: 24px 0; }
+  .title { font-size: 26px; color: #8b4513; font-weight: bold; }
+  .subtitle { font-size: 14px; color: #6b4423; margin-top: 6px; }
+
+  .season-block {
+    background: #fff;
+    border-radius: 16px;
+    padding: 16px;
+    margin-bottom: 16px;
+    box-shadow: 0 4px 12px rgba(139, 69, 19, 0.1);
+  }
+  .season-title {
+    font-size: 20px;
+    color: #8b4513;
+    margin-bottom: 12px;
+    text-align: center;
+    font-weight: bold;
+  }
+
+  .jieqi-card {
+    background: linear-gradient(135deg, #fdf8f0, #fff8e8);
+    border-radius: 10px;
+    padding: 12px 16px;
+    margin-bottom: 8px;
+    border-left: 3px solid #8b4513;
+  }
+  .jieqi-name {
+    font-size: 16px;
+    font-weight: bold;
+    color: #8b4513;
+    display: inline-block;
+    margin-right: 8px;
+  }
+  .jieqi-date {
+    font-size: 12px;
+    color: #8b6f47;
+    background: #fff8e8;
+    padding: 2px 8px;
+    border-radius: 10px;
+  }
+  .jieqi-topic {
+    font-size: 14px;
+    color: #5b3413;
+    margin: 6px 0;
+  }
+  .jieqi-hook {
+    font-size: 13px;
+    color: #8b4513;
+    font-style: italic;
+    margin: 4px 0;
+  }
+  .jieqi-action {
+    font-size: 13px;
+    color: #6b4423;
+    background: rgba(139, 69, 19, 0.05);
+    padding: 4px 8px;
+    border-radius: 4px;
+    margin-top: 4px;
+    display: inline-block;
+  }
+
+  .highlight-card {
+    border: 2px solid #c83232;
+    background: linear-gradient(135deg, #fff0f0, #fdf0d0);
+  }
+
+  .monthly-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 16px 0;
+    font-size: 13px;
+    background: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(139, 69, 19, 0.1);
+  }
+  .monthly-table th {
+    background: #8b4513;
+    color: #fff;
+    padding: 8px;
+    text-align: center;
+  }
+  .monthly-table td {
+    padding: 8px;
+    border-bottom: 1px solid #e8d8a8;
+  }
+
+  .footer {
+    text-align: center;
+    padding: 24px 0;
+    color: #8b6f47;
+    font-size: 12px;
+  }
+  .footer a {
+    color: #8b4513;
+    text-decoration: none;
+    font-weight: bold;
+  }
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="header">
+    <div class="title">🌱 24 节气内容日历</div>
+    <div class="subtitle">凌姐·连山易传承人 · 每节气一篇公众号</div>
+  </div>
+<div class="season-block">
+  <div class="season-title">🌸 春</div>
+  <div class="jieqi-card ">
+    <div><span class="jieqi-name">**小寒**</span><span class="jieqi-date">1/5</span></div>
+    <div class="jieqi-topic">万物开始回阳</div>
+    <div class="jieqi-hook">""三九补一冬""</div>
+    <span class="jieqi-action">👉 早睡、多喝汤</span>
+  </div>
+  <div class="jieqi-card ">
+    <div><span class="jieqi-name">**大寒**</span><span class="jieqi-date">1/20</span></div>
+    <div class="jieqi-topic">一年最冷，宜团聚</div>
+    <div class="jieqi-hook">""年关将近""</div>
+    <span class="jieqi-action">👉 回家吃饭</span>
+  </div>
+  <div class="jieqi-card ">
+    <div><span class="jieqi-name">**立春**</span><span class="jieqi-date">2/4</span></div>
+    <div class="jieqi-topic">万物复苏</div>
+    <div class="jieqi-hook">""立春三件套""</div>
+    <span class="jieqi-action">👉 吃春饼、剪头</span>
+  </div>
+  <div class="jieqi-card ">
+    <div><span class="jieqi-name">**雨水**</span><span class="jieqi-date">2/19</span></div>
+    <div class="jieqi-topic">天降雨水</div>
+    <div class="jieqi-hook">""春捂秋冻""</div>
+    <span class="jieqi-action">👉 注意保暖</span>
+  </div>
+  <div class="jieqi-card ">
+    <div><span class="jieqi-name">**惊蛰**</span><span class="jieqi-date">3/6</span></div>
+    <div class="jieqi-topic">春雷惊醒蛰虫</div>
+    <div class="jieqi-hook">""叫醒孩子""</div>
+    <span class="jieqi-action">👉 早起</span>
+  </div>
+  <div class="jieqi-card ">
+    <div><span class="jieqi-name">**春分**</span><span class="jieqi-date">3/21</span></div>
+    <div class="jieqi-topic">昼夜平分</div>
+    <div class="jieqi-hook">""今天适合平衡""</div>
+    <span class="jieqi-action">👉 不全躺也不全拼</span>
+  </div>
+</div>
+<div class="season-block">
+  <div class="season-title">☀️ 夏</div>
+  <div class="jieqi-card ">
+    <div><span class="jieqi-name">**清明**</span><span class="jieqi-date">4/5</span></div>
+    <div class="jieqi-topic">天气清明</div>
+    <div class="jieqi-hook">""清明扫墓""</div>
+    <span class="jieqi-action">👉 追忆祖先</span>
+  </div>
+  <div class="jieqi-card ">
+    <div><span class="jieqi-name">**谷雨**</span><span class="jieqi-date">4/20</span></div>
+    <div class="jieqi-topic">雨生百谷</div>
+    <div class="jieqi-hook">""谷雨三件套""</div>
+    <span class="jieqi-action">👉 读一本好书</span>
+  </div>
+  <div class="jieqi-card ">
+    <div><span class="jieqi-name">**立夏**</span><span class="jieqi-date">5/6</span></div>
+    <div class="jieqi-topic">夏季开始</div>
+    <div class="jieqi-hook">""立夏称人""</div>
+    <span class="jieqi-action">👉 户外运动</span>
+  </div>
+  <div class="jieqi-card ">
+    <div><span class="jieqi-name">**小满**</span><span class="jieqi-date">5/21</span></div>
+    <div class="jieqi-topic">麦类籽粒饱满</div>
+    <div class="jieqi-hook">""小满即可""</div>
+    <span class="jieqi-action">👉 小目标推进</span>
+  </div>
+  <div class="jieqi-card ">
+    <div><span class="jieqi-name">**芒种**</span><span class="jieqi-date">6/6</span></div>
+    <div class="jieqi-topic">有芒作物成熟</div>
+    <div class="jieqi-hook">""忙种""</div>
+    <span class="jieqi-action">👉 收获 + 播种新目标</span>
+  </div>
+  <div class="jieqi-card ">
+    <div><span class="jieqi-name">**夏至**</span><span class="jieqi-date">6/21</span></div>
+    <div class="jieqi-topic">一年白天最长</div>
+    <div class="jieqi-hook">""夏至面""</div>
+    <span class="jieqi-action">👉 户外 + 忌贪凉</span>
+  </div>
+</div>
+<div class="season-block">
+  <div class="season-title">🍂 秋</div>
+  <div class="jieqi-card ">
+    <div><span class="jieqi-name">**小暑**</span><span class="jieqi-date">7/7</span></div>
+    <div class="jieqi-topic">天气炎热</div>
+    <div class="jieqi-hook">""小暑三宝""</div>
+    <span class="jieqi-action">👉 静心午睡</span>
+  </div>
+  <div class="jieqi-card ">
+    <div><span class="jieqi-name">**大暑**</span><span class="jieqi-date">7/23</span></div>
+    <div class="jieqi-topic">一年最热</div>
+    <div class="jieqi-hook">""三伏天""</div>
+    <span class="jieqi-action">👉 静心纳凉</span>
+  </div>
+  <div class="jieqi-card ">
+    <div><span class="jieqi-name">**立秋**</span><span class="jieqi-date">8/8</span></div>
+    <div class="jieqi-topic">秋季开始</div>
+    <div class="jieqi-hook">""贴秋膘""</div>
+    <span class="jieqi-action">👉 收心规划</span>
+  </div>
+  <div class="jieqi-card ">
+    <div><span class="jieqi-name">**处暑**</span><span class="jieqi-date">8/23</span></div>
+    <div class="jieqi-topic">暑气结束</div>
+    <div class="jieqi-hook">""出伏""</div>
+    <span class="jieqi-action">👉 调节作息</span>
+  </div>
+  <div class="jieqi-card highlight-card">
+    <div><span class="jieqi-name">**白露**</span><span class="jieqi-date">9/8</span></div>
+    <div class="jieqi-topic">露水变白</div>
+    <div class="jieqi-hook">"**"古人没有温度计"** ✍️ 已写"</div>
+    <span class="jieqi-action">👉 早起看露水</span>
+  </div>
+  <div class="jieqi-card ">
+    <div><span class="jieqi-name">**秋分**</span><span class="jieqi-date">9/23</span></div>
+    <div class="jieqi-topic">昼夜平分</div>
+    <div class="jieqi-hook">""秋分三宝""</div>
+    <span class="jieqi-action">👉 平衡审视</span>
+  </div>
+</div>
+<div class="season-block">
+  <div class="season-title">❄️ 冬</div>
+  <div class="jieqi-card ">
+    <div><span class="jieqi-name">**寒露**</span><span class="jieqi-date">10/8</span></div>
+    <div class="jieqi-topic">露水更凉</div>
+    <div class="jieqi-hook">""寒露脚不露""</div>
+    <span class="jieqi-action">👉 注意保暖</span>
+  </div>
+  <div class="jieqi-card ">
+    <div><span class="jieqi-name">**霜降**</span><span class="jieqi-date">10/24</span></div>
+    <div class="jieqi-topic">开始有霜</div>
+    <div class="jieqi-hook">""霜降三宝""</div>
+    <span class="jieqi-action">👉 进补</span>
+  </div>
+  <div class="jieqi-card ">
+    <div><span class="jieqi-name">**立冬**</span><span class="jieqi-date">11/7</span></div>
+    <div class="jieqi-topic">冬季开始</div>
+    <div class="jieqi-hook">""冬藏""</div>
+    <span class="jieqi-action">👉 早睡</span>
+  </div>
+  <div class="jieqi-card ">
+    <div><span class="jieqi-name">**小雪**</span><span class="jieqi-date">11/22</span></div>
+    <div class="jieqi-topic">开始下雪</div>
+    <div class="jieqi-hook">""围炉夜话""</div>
+    <span class="jieqi-action">👉 沉淀阅读</span>
+  </div>
+  <div class="jieqi-card ">
+    <div><span class="jieqi-name">**大雪**</span><span class="jieqi-date">12/7</span></div>
+    <div class="jieqi-topic">降雪量多</div>
+    <div class="jieqi-hook">""大雪进补""</div>
+    <span class="jieqi-action">👉 静心读书</span>
+  </div>
+  <div class="jieqi-card ">
+    <div><span class="jieqi-name">**冬至**</span><span class="jieqi-date">12/22</span></div>
+    <div class="jieqi-topic">一年黑夜最长</div>
+    <div class="jieqi-hook">""冬至一阳生""</div>
+    <span class="jieqi-action">👉 团聚静养</span>
+  </div>
+</div>
+<div class="season-block">
+  <div class="season-title">快节奏（流量期）</div>
+</div>
+<div class="season-block">
+  <div class="season-title">第 1 月</div>
+</div>
+
+<table class="monthly-table">
+<tr><th>月</th><th>节气</th><th>重点</th></tr>
+<tr><td>1月</td><td>小寒+大寒</td><td>转发白露热度</td></tr>
+<tr><td>2月</td><td>立春+雨水</td><td>🌱 立春——开年大篇</td></tr>
+<tr><td>3月</td><td>惊蛰+春分</td><td>春雷惊醒</td></tr>
+<tr><td>4月</td><td>清明+谷雨</td><td>🪦 清明——情感共鸣</td></tr>
+<tr><td>5月</td><td>立夏+小满</td><td>☀️ 立夏——夏天开始</td></tr>
+<tr><td>6月</td><td>芒种+夏至</td><td>夏至——白天最长</td></tr>
+<tr><td>7月</td><td>小暑+大暑</td><td>大暑——最热</td></tr>
+<tr><td>8月</td><td>立秋+处暑</td><td>处暑——8月底要发</td></tr>
+<tr><td><strong>9月</strong></td><td>白露+秋分</td><td>🌾 <strong>白露——凌姐代表作</strong></td></tr>
+<tr><td>10月</td><td>寒露+霜降</td><td>霜降——秋收</td></tr>
+<tr><td>11月</td><td>立冬+小雪</td><td>冬藏</td></tr>
+<tr><td>12月</td><td>大雪+冬至</td><td>冬至——一阳生</td></tr>
+</table>
+
+<div class="footer">
+  凌姐·连山易传承人 · 命里有数 MVP<br>
+  <span style="font-size: 11px;">工具 4 · 24 节气内容日历</span><br><br>
+  <a href="guide.html">📝 看 Kimi 写公众号教程</a> &nbsp;·&nbsp;
+  <a href="daily.html">🌱 每日说明书</a> &nbsp;·&nbsp;
+  <a href="index.html">💬 预约亲聊</a>
+</div>
+</div>
+</body>
+</html>
