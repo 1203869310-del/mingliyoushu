@@ -414,10 +414,26 @@ window.onload = function() {
   const jieqi = getTodayJieQi();
   document.getElementById('todayJieQi').textContent = '🌱 ' + jieqi.name + ' · ' + jieqi.season;
   const jq = JIEQI_TIPS[jieqi.name];
+  let specialNote = '';
+
+  // 季节性特别提示 - 白露、立冬、春分、夏至、冬至 加重
+  if (jieqi.name === '白露') {
+    specialNote = '<br><br>🌾 <strong>白露特别提醒</strong>：<br>古人没有温度计，凭露水变白知道秋深了。<br>今早摸一下草叶上的露水，<strong>和处暑真的不一样</strong>。';
+  } else if (jieqi.name === '立冬') {
+    specialNote = '<br><br>❄️ <strong>立冬特别提醒</strong>：<br>冬藏不是躲，是养精蓄锐。<br>宜早睡，不宜剧烈运动。';
+  } else if (jieqi.name === '春分') {
+    specialNote = '<br><br>🌸 <strong>春分特别提醒</strong>：<br>昼夜平分。<br>今天适合"平衡"——工作不要太拼，休息也别全躺。';
+  } else if (jieqi.name === '夏至') {
+    specialNote = '<br><br>☀️ <strong>夏至特别提醒</strong>：<br>一年白天最长。<br>宜户外，不宜吹空调贪凉。';
+  } else if (jieqi.name === '冬至') {
+    specialNote = '<br><br>🌑 <strong>冬至特别提醒</strong>：<br>一年黑夜最长，但"一阳生"——开始回阳了。<br>今天宜团聚、宜静养。';
+  }
+
   document.getElementById('jieqiContent').innerHTML =
     '<strong>' + jieqi.name + '</strong>：' + jq.desc + '（' + jieqi.season + '）<br><br>' +
     '✅ <strong>今天宜</strong>：' + jq.yi + '<br><br>' +
-    '❌ <strong>今天忌</strong>：' + jq.ji;
+    '❌ <strong>今天忌</strong>：' + jq.ji +
+    specialNote;
 
   // 干支
   const ganzhi = getTodayGanZhi();
